@@ -4,12 +4,16 @@ Here are a few pictures of BVC in action...
 
 =Single CI Project View=
 
-The following screen shot shows one project being monitored.
+_Photo on the way_
 
 =Multiple CI Project View=
 
 The following screen shot shows three projects being monitored. _Foo_ and _Bar_ are successful while _Some Project_ is broken.
 
+http://farm3.static.flickr.com/2048/2051934122_85cd442f06_o.jpg
+
 =Lots Of Projects View=
 
 The following screen shot shows 8 projects being monitored. This is the view of http://ccnetlive.thoughtworks.com/ccnet/.
+
+http://farm3.static.flickr.com/2245/2051148469_f69f401617_o.jpg
