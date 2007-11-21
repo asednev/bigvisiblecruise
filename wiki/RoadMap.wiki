@@ -8,10 +8,11 @@ The current roadmap looks something like this...
  
   * Setup mailing list
   * Add contribution / development guidelines
-  * Add support for the Java-based Cruise Control
-  * Add support for Cruise Control.rb
+  * Add the ability to filter projects from the views
   * Provide additional real-time visualizations
 
 ===Later Than Sooner===
 
+  * Add support for the Java-based Cruise Control
+  * Add support for Cruise Control.rb
   * Add the capability to support historic visualization and trend analysis
