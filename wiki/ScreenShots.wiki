@@ -10,4 +10,6 @@ The following screen shot shows one project being monitored.
 
 The following screen shot shows three projects being monitored. _Foo_ and _Bar_ are successful while _Some Project_ is broken.
 
-http://farm3.static.flickr.com/2348/2049317643_b88769c777.jpg?v=0
+=Lots Of Projects View=
+
+The following screen shot shows 8 projects being monitored. This is the view of http://ccnetlive.thoughtworks.com/ccnet/.
