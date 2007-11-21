@@ -8,12 +8,16 @@ _Photo on the way_
 
 =Multiple CI Project View=
 
-The following screen shot shows three projects being monitored. _Foo_ and _Bar_ are successful while _Some Project_ is broken.
+The following screen shot shows three projects being monitored. _Foo_ and _Bar_ are successful while _Some Project_ is broken...
 
 http://farm3.static.flickr.com/2048/2051934122_85cd442f06_o.jpg
 
 =Lots Of Projects View=
 
-The following screen shot shows 8 projects being monitored. This is the view of http://ccnetlive.thoughtworks.com/ccnet/.
+The following screen shot shows 8 projects being monitored. This is the view of http://ccnetlive.thoughtworks.com/ccnet/...
 
 http://farm3.static.flickr.com/2245/2051148469_f69f401617_o.jpg
+
+Another example (with successful, broken, and an unknown status)...
+
+http://farm3.static.flickr.com/2227/2052036972_55e585a6f6_o.jpg
