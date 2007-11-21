@@ -21,3 +21,7 @@ Setting up the application is easy. Very Easy. Copy the distribution from the Do
 =Dependencies For Running BVC=
 
 The Big Visible Cruise display makes use of the REST-style interface exposed from CCNet. All of the CCNet builds that are 1.1 or later should support this interface. To see if your CCNet instance exposes this interface, try and browse to {{{http://<server>/ccnet/XmlStatusReport.aspx}}}.
+
+You'll also need .Net 3.0 installed.
+
+The source is provided as a VS2005 solution and uses the WPF Extensions for .Net Framework 3.0.
