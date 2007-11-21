@@ -10,6 +10,7 @@ BVC has a very simple and informative interface. A new row is added to the scree
 ||Green||Successful Build||
 ||Yellow||Building||
 ||Red||Broken Build or Exception||
+||White||Unknown (or any other value)||
 
 BVC was intended to run full-screen on a dedicated monitor.
 
