@@ -15,8 +15,6 @@ namespace BigVisibleCruise.Tests
             string startingValue = "Success";
             IValueConverter converter = new BuildStatusToColorConverter();
             object convertedValue = converter.Convert(startingValue, null, null, null);
-
-            // doing a string comparison to test the color representation
             Assert.That(Color.Equals(convertedValue.ToString(), Colors.Green.ToString()));
         }
 
@@ -26,8 +24,6 @@ namespace BigVisibleCruise.Tests
             string startingValue = "Building";
             IValueConverter converter = new BuildStatusToColorConverter();
             object convertedValue = converter.Convert(startingValue, null, null, null);
-
-            // doing a string comparison to test the color representation
             Assert.That(Color.Equals(convertedValue.ToString(), Colors.Yellow.ToString()));
         }
 
@@ -37,8 +33,6 @@ namespace BigVisibleCruise.Tests
             string startingValue = "Failure";
             IValueConverter converter = new BuildStatusToColorConverter();
             object convertedValue = converter.Convert(startingValue, null, null, null);
-
-            // doing a string comparison to test the color representation
             Assert.That(Color.Equals(convertedValue.ToString(), Colors.Red.ToString()));
         }
 
@@ -48,17 +42,25 @@ namespace BigVisibleCruise.Tests
             string startingValue = "Failure";
             IValueConverter converter = new BuildStatusToColorConverter();
             object convertedValue = converter.Convert(startingValue, null, null, null);
-
-            // doing a string comparison to test the color representation
             Assert.That(Color.Equals(convertedValue.ToString(), Colors.Red.ToString()));
         }
 
-        [Test, ExpectedException(typeof(ApplicationException))]
-        public void any_other_color_that_we_havent_considered_will_throw()
+        [Test]
+        public void a_build_status_of_unknown_is_white()
+        {
+            string startingValue = "Unknown";
+            IValueConverter converter = new BuildStatusToColorConverter();
+            object convertedValue = converter.Convert(startingValue, null, null, null);
+            Assert.That(Color.Equals(convertedValue.ToString(), Colors.White.ToString()));
+        }
+
+        [Test]
+        public void any_other_color_that_we_havent_considered_will_be_white()
         {
             string startingValue = "foo";
             IValueConverter converter = new BuildStatusToColorConverter();
             object convertedValue = converter.Convert(startingValue, null, null, null);
+            Assert.That(Color.Equals(convertedValue.ToString(), Colors.White.ToString()));
         }
     }
 }
