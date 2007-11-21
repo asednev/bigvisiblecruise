@@ -5,10 +5,12 @@ BVC will evolve based on the needs of myself and the community. If you would lik
 The current roadmap looks something like this...
 
 ===Sooner Than Later===
-
+ 
+  * Setup mailing list
+  * Add contribution / development guidelines
   * Add support for the Java-based Cruise Control
   * Add support for Cruise Control.rb
-  * Provide additional real time visualizations
+  * Provide additional real-time visualizations
 
 ===Later Than Sooner===
 
