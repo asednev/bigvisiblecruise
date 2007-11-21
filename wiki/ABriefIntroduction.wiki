@@ -22,3 +22,5 @@ The sweet spot for BVC is a team room or on a monitor that is visible to multipl
 =How Hard Is It To Setup And Configure?=
 
 Easy. Very Easy. Copy the distribution from the Downloads page (http://code.google.com/p/bigvisiblecruise/downloads), unzip it, add the url for CCNet, and run !BigVisibleCruise.exe.
+
+The Big Visible Cruise display makes use of the REST-style interface exposed from CCNet. All of the CCNet builds that are 1.1 or later should support this interface. To see if your CCNet instance exposes this interface, try and browse to {{{http://<server>/ccnet/XmlStatusReport.aspx}}}.
