@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Windows;
 using System.Windows.Threading;
 using CruiseControlToys.Lib;
+using System.Collections.Specialized;
 
 namespace BigVisibleCruise
 {
@@ -23,13 +24,11 @@ namespace BigVisibleCruise
 
         private void InitializeMonitors()
         {
-            string delimitedDashboardSetting = Properties.Settings.Default.Dashboards;
-            string[] dashboards = delimitedDashboardSetting.Split(',');
-            
-            List<IResolver> dashboardResolvers = new List<IResolver>(dashboards.Length);
-            for (int index = 0; index < dashboards.Length; index++ )
+            StringCollection dashboards = Properties.Settings.Default.Dashboards;
+            List<IResolver> dashboardResolvers = new List<IResolver>(dashboards.Count);
+            foreach (string dashboardLocation in dashboards)
             {
-                dashboardResolvers.Add(DashboardResolver.FromUri(new Uri(dashboards[index])));
+                dashboardResolvers.Add(DashboardResolver.FromUri(new Uri(dashboardLocation)));
             }
 
             _allResolvers = new AggregateResolver(dashboardResolvers);

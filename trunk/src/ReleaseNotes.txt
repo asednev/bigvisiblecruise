@@ -1,9 +1,18 @@
 
+-------------------------------------------------------------------------------
+| 0.3 -
+-------------------------------------------------------------------------------
+* Added the ability to map project names to more humanized names through the 
+settings file.
+
+* Refactoring of the Dashboards setting to use a StringCollection instead of a
+delimited string.
 
 -------------------------------------------------------------------------------
-| 0.2 - Initial Release (current)
+| 0.2 - Bug Fixes
 -------------------------------------------------------------------------------
-* Fixed bug with 'Unknown' status (http://code.google.com/p/bigvisiblecruise/issues/detail?id=1&can=1)
+* Fixed bug with 'Unknown' status 
+(http://code.google.com/p/bigvisiblecruise/issues/detail?id=1&can=1)
 
 
 -------------------------------------------------------------------------------
