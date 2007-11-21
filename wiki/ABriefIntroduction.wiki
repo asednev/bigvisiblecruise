@@ -1,14 +1,21 @@
-#summary A brief introduction to Big Visible Cruise
+=What Is BVC?=
+
+BVC simply shows the status of your build at a specific moment in time. It's green (successful), yellow (building), or red (broken or has an exception). BVC will display all of the projects that are at the url that you provide.
+
+BVC has a very simple and informative interface. A new row is added to the screen for each of the projects hosted in CCNet. The color of each row indicates the status of the build.
+
+|| *Color* || *Meaning* ||
+||Green||Successful Build||
+||Yellow||Building||
+||Red||Broken Build or Exception||
+
+BVC was intended to run full-screen on a dedicated monitor.#summary A brief introduction to Big Visible Cruise
 
 =Why BVC Was Created=
 
 Big Visible Cruise was created as an alternative (or an addition to) the information radiators that are typically used for continuous integration. While I certainly love Nabaztag (http://www.nabaztag.com/en/index.html), Orbs (http://www.ambientdevices.com/cat/orb/orborder.html), and Lava Lamps (http://www.pragmaticautomation.com/cgi-bin/pragauto.cgi) - I also think there is a place for a simple big screen of information that shows the status of your build or builds.
 
 The sweet spot for BVC is a team room or on a monitor that is visible to multiple individuals. I'm currently using BVC with CCTray to provide a good visual with good auditory feedback of the build status.
-
-=What Is BVC?=
-
-BVC simply shows the status of your build at a specific moment in time. It's green (successful), yellow (building), or red (broken or has an exception). BVC will display all of the projects that are at the url that you provide.
 
 =How Hard Is It To Setup And Configure?=
 
