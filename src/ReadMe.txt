@@ -5,6 +5,8 @@
 ##
 ###############################################################################
 
+The home for Big Visible Cruise is http://code.google.com/p/bigvisiblecruise/
+
 The Big Visible Cruise display makes use of the REST-style interface exposed
 from CCNet. All of the CCNet builds that are 1.1 or later should support this 
 interface. To see if your CCNet instance exposes this interface, try and browse 
