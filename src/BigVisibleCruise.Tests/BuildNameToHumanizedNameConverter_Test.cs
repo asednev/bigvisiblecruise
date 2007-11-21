@@ -27,6 +27,5 @@ namespace BigVisibleCruise.Tests
 
             Assert.That(convertedValue, Is.EqualTo(startingValue));
         }
-
     }
 }

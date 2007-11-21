@@ -46,6 +46,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="BuildNameToHumancedNameConverter_IntegrationTests.cs" />
     <Compile Include="BuildNameToHumanizedNameConverter_Test.cs" />
     <Compile Include="BuildStatusToColorConverter_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
