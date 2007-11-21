@@ -20,7 +20,7 @@ namespace BigVisibleCruise
                 case "Exception":
                     return new SolidColorBrush(Colors.Red);
                 default:
-                    throw new ApplicationException("Unexpected value: " + value.ToString());
+                    return new SolidColorBrush(Colors.White);
             }
         }
 
