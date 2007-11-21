@@ -1,3 +1,9 @@
 #summary Pictures of BVC in action.
 
 Here are a few pictures of BVC in action...
+
+=Multiple Projects View=
+
+The following screen shot shows three projects being monitored by BVC. Foo and Bar are successful while Some Project is broken.
+
+http://farm3.static.flickr.com/2348/2049317643_b88769c777.jpg?v=0
