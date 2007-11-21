@@ -1,0 +1,22 @@
+#summary A brief introduction to Big Visible Cruise
+
+=What Is BVC?=
+
+BVC simply shows the status of your build at a specific moment in time. It's either green, yellow, or red. BVC will display all of the projects that are at the url that you provide.
+
+BVC has a very simple and informative interface. A new row is added to the screen for each of the projects hosted in CCNet. The color of each row indicates the status of the build.
+
+|| *Color* || *Meaning* ||
+||Green||Successful Build||
+||Yellow||Building||
+||Red||Broken Build or Exception||
+
+BVC was intended to run full-screen on a dedicated monitor.
+
+=Setting Up BVC=
+
+Setting up the application is easy. Very Easy. Copy the distribution from the Downloads page (http://code.google.com/p/bigvisiblecruise/downloads), unzip it, add the url for CCNet, and run !BigVisibleCruise.exe.
+
+=Dependencies For Running BVC=
+
+The Big Visible Cruise display makes use of the REST-style interface exposed from CCNet. All of the CCNet builds that are 1.1 or later should support this interface. To see if your CCNet instance exposes this interface, try and browse to {{{http://<server>/ccnet/XmlStatusReport.aspx}}}.
