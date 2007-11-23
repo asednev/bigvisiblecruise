@@ -15,13 +15,13 @@ namespace BigVisibleCruise.Tests
         public void name_with_mapping_is_detected()
         {
             // relies on the config file in the BigVisibleCruise project
-            //ccnetlive=CC Net Live,NMock=This is NMock!
+            // if the config changes, this test might also
 
-            string startingValue = "ccnetlive";
+            string startingValue = "CCNet";
             IValueConverter converter = new BuildNameToHumanizedNameConverter();
             object convertedValue = converter.Convert(startingValue, null, null, null);
 
-            Assert.That(convertedValue, Is.EqualTo("CC Net Live"));
+            Assert.That(convertedValue, Is.EqualTo("Cruise Control .Net Project"));
         }
     }
 }

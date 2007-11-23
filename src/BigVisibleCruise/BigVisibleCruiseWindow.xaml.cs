@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Windows;
 using System.Windows.Threading;
+using BigVisibleCruise.Properties;
 using CruiseControlToys.Lib;
-using System.Collections.Specialized;
 
 namespace BigVisibleCruise
 {
@@ -12,7 +10,7 @@ namespace BigVisibleCruise
     {
 
         DispatcherTimer _timer = new DispatcherTimer();
-        IResolver _allResolvers;
+        IResolver _dashboardResolver;
 
         public BigVisibleCruiseWindow()
         {
@@ -24,14 +22,7 @@ namespace BigVisibleCruise
 
         private void InitializeMonitors()
         {
-            StringCollection dashboards = Properties.Settings.Default.Dashboards;
-            List<IResolver> dashboardResolvers = new List<IResolver>(dashboards.Count);
-            foreach (string dashboardLocation in dashboards)
-            {
-                dashboardResolvers.Add(DashboardResolver.FromUri(new Uri(dashboardLocation)));
-            }
-
-            _allResolvers = new AggregateResolver(dashboardResolvers);
+            _dashboardResolver = DashboardResolver.FromUri(new Uri(Properties.Settings.Default.Dashboard));
         }
 
         private void InitializeTimerForContextUpdate()
@@ -48,7 +39,7 @@ namespace BigVisibleCruise
 
         private void SetDataContext()
         {
-            this.DataContext = _allResolvers.GetProjects();    
+            this.DataContext = (Settings.Default.ProjectNamesToInclude == null) ? _dashboardResolver.GetProjects() : _dashboardResolver.GetProjectsByName(Settings.Default.ProjectNamesToInclude);
         }
 
     }
