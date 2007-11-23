@@ -37,7 +37,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="AggregateResolver.cs" />
     <Compile Include="DashboardResolver.cs" />
     <Compile Include="IResolver.cs" />
     <Compile Include="ProjectStatus.cs" />

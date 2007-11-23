@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Net;
 using System.Xml;
+using System.Collections.Specialized;
 
 namespace CruiseControlToys.Lib
 {
@@ -67,6 +68,23 @@ namespace CruiseControlToys.Lib
             return list; 
         }
 
+        public ObservableCollection<ProjectStatus> GetProjectsByName(StringCollection projectNamesToInclude)
+        {
+
+            ObservableCollection<ProjectStatus> list = GetProjects();
+            ObservableCollection<ProjectStatus> filteredList = new ObservableCollection<ProjectStatus>();
+
+            foreach (ProjectStatus status in list)
+            {
+                if (projectNamesToInclude.Contains(status.Name))
+                {
+                    filteredList.Add(status);
+                }
+            }
+
+            return filteredList;             
+        }
+
         private void RefreshProjectStatusDocumentIfThereIsAnHttpUri()
         {
             if (this.Uri != null && this.Uri.Scheme.StartsWith("http"))
@@ -78,6 +96,7 @@ namespace CruiseControlToys.Lib
                 this.ProjectStatusDocument = statusDocument;
             }
         }
+
     }
 
 }

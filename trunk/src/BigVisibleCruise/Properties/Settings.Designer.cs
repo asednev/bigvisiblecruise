@@ -34,11 +34,6 @@ namespace BigVisibleCruise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>ccnetlive=CC Net Live</string>
-  <string>NMock=This is NMock!</string>
-</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection ProjectNameSubstitutions {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["ProjectNameSubstitutions"]));
@@ -47,13 +42,18 @@ namespace BigVisibleCruise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
-            "tring>http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx</string>\r\n</A" +
-            "rrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Dashboards {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Dashboard {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Dashboards"]));
+                return ((string)(this["Dashboard"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection ProjectNamesToInclude {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ProjectNamesToInclude"]));
             }
         }
     }

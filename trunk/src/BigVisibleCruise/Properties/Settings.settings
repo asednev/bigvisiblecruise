@@ -6,17 +6,13 @@
       <Value Profile="(Default)">00:00:15</Value>
     </Setting>
     <Setting Name="ProjectNameSubstitutions" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;ccnetlive=CC Net Live&lt;/string&gt;
-  &lt;string&gt;NMock=This is NMock!&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
+      <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Dashboards" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
+    <Setting Name="Dashboard" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ProjectNamesToInclude" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

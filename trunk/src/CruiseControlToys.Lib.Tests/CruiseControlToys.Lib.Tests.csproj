@@ -45,7 +45,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="AggregateResolver_Tests.cs" />
     <Compile Include="DashboardResolver_IntegrationTests.cs" />
     <Compile Include="DashboardResolver_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
