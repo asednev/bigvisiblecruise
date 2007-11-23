@@ -6,11 +6,10 @@ Here are a few pictures of BVC in action...
 
 Here are the different images for a single project and the common states...
 
-|| Status || Image ||
+|| *Status* || *Image* ||
 || Successful || http://farm3.static.flickr.com/2258/2058096124_2c8a0e4b24_o.png ||
 || Building || http://farm3.static.flickr.com/2404/2058096396_890a789c9b_o.png ||
 || Broken (or Exception) || http://farm3.static.flickr.com/2299/2057310313_5e766e8740_o.png ||
-
 
 =Multiple CI Project View=
 
