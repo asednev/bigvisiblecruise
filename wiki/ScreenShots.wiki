@@ -2,27 +2,11 @@
 
 Here are a few pictures of BVC in action...
 
-=Single CI Project View=
-
-Here are the different images for a single project and the common states...
-
 || *Status* || *Image* ||
-|| Successful || http://farm3.static.flickr.com/2258/2058096124_2c8a0e4b24_o.png ||
-|| Building || http://farm3.static.flickr.com/2404/2058096396_890a789c9b_o.png ||
-|| Broken (or Exception) || http://farm3.static.flickr.com/2299/2057310313_5e766e8740_o.png ||
+|| Successful with 1 Project || http://farm3.static.flickr.com/2258/2058096124_2c8a0e4b24_o.png ||
+|| Building with 1 Project || http://farm3.static.flickr.com/2404/2058096396_890a789c9b_o.png ||
+|| Broken (or Exception) with 1 Project || http://farm3.static.flickr.com/2299/2057310313_5e766e8740_o.png ||
+|| Multiple Projects (Successful and Broken) || http://farm3.static.flickr.com/2048/2051934122_85cd442f06_o.jpg ||
+|| Multiple Projects (Building and Broken) || http://farm3.static.flickr.com/2102/2052800584_73010938ee.jpg ||
 
-=Multiple CI Project View=
 
-The following screen shot shows three projects being monitored. _Foo_ and _Bar_ are successful while _Some Project_ is broken...
-
-http://farm3.static.flickr.com/2048/2051934122_85cd442f06_o.jpg
-
-Here is an example of a project building. _Build One_ is building, _Build Two_ and _Build Three_ are successful.
-
-http://farm3.static.flickr.com/2102/2052800584_73010938ee.jpg
-
-=Lots Of Projects View=
-
-The following screen shot shows 8 projects being monitored. This is the view of http://ccnetlive.thoughtworks.com/ccnet/...
-
-http://farm3.static.flickr.com/2245/2051148469_f69f401617_o.jpg
