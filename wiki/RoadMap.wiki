@@ -6,9 +6,9 @@ The current roadmap looks something like this...
 
 ===Sooner Than Later===
  
-  * ~~Setup mailing list~~ *In 0.3*
+  * ~~Setup mailing list~~ *Done.*
   * Add contribution / development guidelines
-  * ~~Add the ability to filter projects from the views~~ *In 0.3*
+  * ~~Add the ability to filter projects from the views~~ *Done. In 0.3*
   * Provide additional real-time visualizations
 
 ===Later Than Sooner===
