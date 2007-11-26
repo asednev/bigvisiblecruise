@@ -1,0 +1,22 @@
+#summary Information on different releases of BVC.
+
+
+==0.3==
+
+ * Added the ability to map project names to more humanized names through the settings file. This was an enhancement request from  http://code.google.com/p/bigvisiblecruise/issues/detail?id=4
+
+ * Refactoring of the Dashboards setting to use a StringCollection instead of a delimited string.
+
+ * Added the ability to filter projects that are displayed. This was an enhancement request from http://code.google.com/p/bigvisiblecruise/issues/list?updated=5&ts=1195789321
+
+ * Removed the AggregateResolver functionality. This functionality really was overkill. Removing the functionality simplified the code a bit.
+
+
+==0.2==
+
+ * Fixed bug with 'Unknown' status http://code.google.com/p/bigvisiblecruise/issues/detail?id=1&can=1
+
+
+==0.1 (Initial Release) ==
+
+ * Initial project release.
