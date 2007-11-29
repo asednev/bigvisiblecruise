@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Xml;
@@ -42,7 +43,7 @@ namespace CruiseControlToys.Lib.Tests
             statusDocument.LoadXml(projectXml);
 
             DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
-            ObservableCollection<ProjectStatus> statuses = resolver.GetProjects();
+            IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses.Count, Is.EqualTo(3));
 
@@ -68,7 +69,7 @@ namespace CruiseControlToys.Lib.Tests
             StringCollection projectsToInclude = new StringCollection();
             projectsToInclude.Add("BarProject");
 
-            ObservableCollection<ProjectStatus> statuses = resolver.GetProjectsByName(projectsToInclude);
+            IList<ProjectStatus> statuses = resolver.GetProjectsByName(projectsToInclude);
 
             Assert.That(statuses.Count, Is.EqualTo(1));
             Assert.That(statuses[0].Name, Is.EqualTo("BarProject"));
@@ -85,7 +86,7 @@ namespace CruiseControlToys.Lib.Tests
             statusDocument.LoadXml(projectXml);
 
             DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
-            ObservableCollection<ProjectStatus> statuses = resolver.GetProjects();
+            IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Success"));
         }
@@ -101,7 +102,7 @@ namespace CruiseControlToys.Lib.Tests
             statusDocument.LoadXml(projectXml);
 
             DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
-            ObservableCollection<ProjectStatus> statuses = resolver.GetProjects();
+            IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Failure"));
         }
@@ -117,7 +118,7 @@ namespace CruiseControlToys.Lib.Tests
             statusDocument.LoadXml(projectXml);
 
             DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
-            ObservableCollection<ProjectStatus> statuses = resolver.GetProjects();
+            IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Building"));            
         }
@@ -133,7 +134,7 @@ namespace CruiseControlToys.Lib.Tests
             statusDocument.LoadXml(projectXml);
 
             DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
-            ObservableCollection<ProjectStatus> statuses = resolver.GetProjects();
+            IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Building"));                        
         }

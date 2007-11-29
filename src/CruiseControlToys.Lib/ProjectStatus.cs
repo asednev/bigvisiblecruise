@@ -4,10 +4,8 @@ using System.ComponentModel;
 namespace CruiseControlToys.Lib
 {
 
-    public class ProjectStatus : INotifyPropertyChanged
+    public class ProjectStatus
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private string _currentBuildStatus;
         private string _name;
@@ -22,7 +20,6 @@ namespace CruiseControlToys.Lib
             set 
             {
                 _currentBuildStatus = value;
-                NotifyPropertyChanged("CurrentBuildStatus");
             }
         }
 
@@ -35,7 +32,6 @@ namespace CruiseControlToys.Lib
             set
             {
                 _name = value;
-                NotifyPropertyChanged("Name");
             }
         }
 
@@ -48,13 +44,7 @@ namespace CruiseControlToys.Lib
             set
             {
                 _measuredAt = value;
-                NotifyPropertyChanged("MeasuredAt");
             }
-        }
-
-        public ProjectStatus()
-        {
-
         }
 
         public ProjectStatus(string projectName, string currentBuildStatus) 
@@ -62,14 +52,6 @@ namespace CruiseControlToys.Lib
             this.Name = projectName;
             this.CurrentBuildStatus = currentBuildStatus;
             this.MeasuredAt = DateTime.Now;
-        }
-
-        private void NotifyPropertyChanged(string info)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
         }
 
     }

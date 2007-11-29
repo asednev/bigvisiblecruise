@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
 using System.Xml;
@@ -49,12 +50,12 @@ namespace CruiseControlToys.Lib
             return dashboardResolver;
         }
 
-        public ObservableCollection<ProjectStatus> GetProjects() 
+        public IList<ProjectStatus> GetProjects() 
         {
             RefreshProjectStatusDocumentIfThereIsAnHttpUri();
 
             XmlNodeList projectList = this.ProjectStatusDocument.SelectNodes("/Projects/Project");
-            ObservableCollection<ProjectStatus> list = new ObservableCollection<ProjectStatus>();
+            IList<ProjectStatus> list = new List<ProjectStatus>();
 
             foreach (XmlNode project in projectList)
             {
@@ -68,11 +69,11 @@ namespace CruiseControlToys.Lib
             return list; 
         }
 
-        public ObservableCollection<ProjectStatus> GetProjectsByName(StringCollection projectNamesToInclude)
+        public IList<ProjectStatus> GetProjectsByName(StringCollection projectNamesToInclude)
         {
 
-            ObservableCollection<ProjectStatus> list = GetProjects();
-            ObservableCollection<ProjectStatus> filteredList = new ObservableCollection<ProjectStatus>();
+            IList<ProjectStatus> list = GetProjects();
+            IList<ProjectStatus> filteredList = new List<ProjectStatus>();
 
             foreach (ProjectStatus status in list)
             {
