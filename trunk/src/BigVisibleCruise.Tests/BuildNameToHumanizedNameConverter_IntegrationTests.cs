@@ -9,7 +9,7 @@ namespace BigVisibleCruise.Tests
 {
 
     [TestFixture]
-    public class BuildNameToHumancedNameConverter_IntegrationTests
+    public class BuildNameToHumanizedNameConverter_IntegrationTests
     {
         [Test]
         public void name_with_mapping_is_detected()
