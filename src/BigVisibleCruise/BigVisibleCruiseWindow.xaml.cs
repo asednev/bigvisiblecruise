@@ -9,7 +9,7 @@ namespace BigVisibleCruise
     public partial class BigVisibleCruiseWindow : Window
     {
 
-        DispatcherTimer _timer = new DispatcherTimer();
+        readonly DispatcherTimer _timer = new DispatcherTimer();
         IResolver _dashboardResolver;
 
         public BigVisibleCruiseWindow()

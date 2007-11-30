@@ -69,6 +69,9 @@
     </Compile>
     <Compile Include="BuildNameToHumanizedNameConverter.cs" />
     <Compile Include="BuildStatusToColorConverter.cs" />
+    <Compile Include="HumaneMessageWindow.xaml.cs">
+      <DependentUpon>HumaneMessageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -84,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="BigVisibleCruiseWindow.xaml" />
+    <Page Include="HumaneMessageWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CruiseControlToys.Lib\CruiseControlToys.Lib.csproj">
