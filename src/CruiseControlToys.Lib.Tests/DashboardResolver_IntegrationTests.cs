@@ -24,6 +24,17 @@ namespace CruiseControlToys.Lib.Tests
             IResolver dashboarResolver = DashboardResolver.FromUri(aWellKnownUri);
             Assert.That(dashboarResolver.GetProjects().Count, Is.EqualTo(8));
         }
+
+        [Test]
+        [ExpectedException(
+            ExceptionType = typeof(DashboardCommunicationException),
+            ExpectedMessage = "Unable to contact http://a.b.c.d.e.foo/ccnet/xmlstatusreport.aspx")]
+        public void a_connectivity_exception_will_be_thrown_if_the_uri_isnt_resolveable()
+        {
+            Uri anUnresolveableUri = new Uri("http://a.b.c.d.e.foo/ccnet/xmlstatusreport.aspx");
+            IResolver dashboardResolver = DashboardResolver.FromUri(anUnresolveableUri);
+            dashboardResolver.GetProjects();
+        }
     }
 
 }

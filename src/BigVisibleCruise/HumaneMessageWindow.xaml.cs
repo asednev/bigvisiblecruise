@@ -55,6 +55,8 @@ namespace BigVisibleCruise
 
 
 
+
+
         public static HumaneMessageWindow Show(String message)
         {
             HumaneMessageWindow humaneWindow = new HumaneMessageWindow(message);
