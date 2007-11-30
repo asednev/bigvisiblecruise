@@ -90,14 +90,26 @@ namespace CruiseControlToys.Lib
         {
             if (this.Uri != null && this.Uri.Scheme.StartsWith("http"))
             {
-                WebClient cruiseClient = new WebClient();
-                string content = cruiseClient.DownloadString(this.Uri.ToString());
+                string content = GetRemoteContent();
                 XmlDocument statusDocument = new XmlDocument();
                 statusDocument.LoadXml(content);
                 this.ProjectStatusDocument = statusDocument;
             }
         }
 
+        private string GetRemoteContent()
+        {
+            try
+            {
+                WebClient cruiseClient = new WebClient();
+                return cruiseClient.DownloadString(this.Uri.ToString());
+            }
+            catch (WebException webException)
+            {
+                throw new DashboardCommunicationException(this.Uri, webException);
+            }
+        }
     }
+
 
 }
