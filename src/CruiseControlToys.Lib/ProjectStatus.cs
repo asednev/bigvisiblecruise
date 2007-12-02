@@ -41,7 +41,7 @@ namespace CruiseControlToys.Lib
             {
                 return _measuredAt;
             }
-            set
+            private set
             {
                 _measuredAt = value;
             }
