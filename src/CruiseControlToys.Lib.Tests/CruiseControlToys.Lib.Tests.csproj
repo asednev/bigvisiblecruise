@@ -46,7 +46,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="CCNetDashboardResolver_IntegrationTests.cs" />
-    <Compile Include="CCNetDashboardResolver_Test.cs" />
+    <Compile Include="CCNetDashboardResolver_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

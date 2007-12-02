@@ -10,7 +10,7 @@ namespace CruiseControlToys.Lib.Tests
 {
 
     [TestFixture]
-    public class CCNetDashboardResolver_Test
+    public class CCNetDashboardResolver_Tests
     {
 
         [Test]
