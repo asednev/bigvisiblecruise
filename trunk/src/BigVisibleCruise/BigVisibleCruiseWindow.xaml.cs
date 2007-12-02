@@ -25,26 +25,24 @@ namespace BigVisibleCruise
         {
             InitializeComponent();
             InitializeMonitors();
-            SetInitialDataContext();
+            SetDataContext();
             InitializeTimerForContextUpdate();
         }
 
         private void SetInitialDataContext()
         {
-            HumaneMessageWindow messageWindow = HumaneMessageWindow.Show("Connecting to " + Properties.Settings.Default.Dashboard + " ...");
             SetDataContext();
-            messageWindow.CloseWithFade();
         }
 
         private void InitializeMonitors()
         {
-            _dashboardResolver = DashboardResolver.FromUri(new Uri(Properties.Settings.Default.Dashboard));
+            _dashboardResolver = CCNetDashboardResolver.FromUri(new Uri(Settings.Default.Dashboard));
         }
 
         private void InitializeTimerForContextUpdate()
         {
-            _timer.Interval = Properties.Settings.Default.PollFrequency;
-            _timer.Tick += new EventHandler(Timer_Tick);
+            _timer.Interval = Settings.Default.PollFrequency;
+            _timer.Tick += Timer_Tick;
             _timer.Start();
         }
 
@@ -66,7 +64,7 @@ namespace BigVisibleCruise
             {
                 // notify and retry
                 TimeSpan timeToShowMessage = Settings.Default.PollFrequency - TimeSpan.FromSeconds(3);
-                HumaneMessageWindow.Show("There was a problem connecting to " + ex.Uri.ToString() + ".", timeToShowMessage);
+                HumaneMessageWindow.Show("There was a problem connecting to " + ex.Uri + ".", timeToShowMessage);
             }   
         }
 

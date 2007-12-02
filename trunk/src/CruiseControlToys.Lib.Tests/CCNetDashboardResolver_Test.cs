@@ -10,7 +10,7 @@ namespace CruiseControlToys.Lib.Tests
 {
 
     [TestFixture]
-    public class DashboardResolver_Test
+    public class CCNetDashboardResolver_Test
     {
 
         [Test]
@@ -25,7 +25,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
 
             Assert.That(resolver.ProjectStatusDocument, Is.EqualTo(statusDocument));
         }
@@ -42,7 +42,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
             IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses.Count, Is.EqualTo(3));
@@ -64,7 +64,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
 
             StringCollection projectsToInclude = new StringCollection();
             projectsToInclude.Add("BarProject");
@@ -85,7 +85,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
             IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Success"));
@@ -101,7 +101,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
             IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Failure"));
@@ -117,7 +117,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
             IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Building"));            
@@ -133,7 +133,7 @@ namespace CruiseControlToys.Lib.Tests
             XmlDocument statusDocument = new XmlDocument();
             statusDocument.LoadXml(projectXml);
 
-            DashboardResolver resolver = DashboardResolver.FromProjectStatusDocument(statusDocument);
+            CCNetDashboardResolver resolver = CCNetDashboardResolver.FromProjectStatusDocument(statusDocument);
             IList<ProjectStatus> statuses = resolver.GetProjects();
 
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Building"));                        
