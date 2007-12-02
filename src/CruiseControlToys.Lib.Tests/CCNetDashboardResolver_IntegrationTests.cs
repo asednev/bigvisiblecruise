@@ -7,21 +7,21 @@ namespace CruiseControlToys.Lib.Tests
 {
 
     [TestFixture]
-    public class DashboardResolver_IntegrationTests
+    public class CCNetDashboardResolver_IntegrationTests
     {
 
         [Test]
         public void can_construct_dashboard_resolver_with_a_uri()
         {
             Uri aWellKnownUri = new Uri("http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx");
-            Assert.That(DashboardResolver.FromUri(aWellKnownUri), Is.Not.Null);
+            Assert.That(CCNetDashboardResolver.FromUri(aWellKnownUri), Is.Not.Null);
         }
 
         [Test]
         public void can_get_projects_from_a_uri()
         {
             Uri aWellKnownUri = new Uri("http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx");
-            IResolver dashboarResolver = DashboardResolver.FromUri(aWellKnownUri);
+            IResolver dashboarResolver = CCNetDashboardResolver.FromUri(aWellKnownUri);
             Assert.That(dashboarResolver.GetProjects().Count, Is.EqualTo(8));
         }
 
@@ -32,7 +32,7 @@ namespace CruiseControlToys.Lib.Tests
         public void a_connectivity_exception_will_be_thrown_if_the_uri_isnt_resolveable()
         {
             Uri anUnresolveableUri = new Uri("http://a.b.c.d.e.foo/ccnet/xmlstatusreport.aspx");
-            IResolver dashboardResolver = DashboardResolver.FromUri(anUnresolveableUri);
+            IResolver dashboardResolver = CCNetDashboardResolver.FromUri(anUnresolveableUri);
             dashboardResolver.GetProjects();
         }
     }
