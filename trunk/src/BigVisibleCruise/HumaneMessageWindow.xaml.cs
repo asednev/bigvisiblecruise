@@ -5,9 +5,6 @@ using System.Windows.Threading;
 
 namespace BigVisibleCruise
 {
-    /// <summary>
-    /// Interaction logic for HumaneMessageWindow.xaml
-    /// </summary>
 
     public partial class HumaneMessageWindow : System.Windows.Window
     {
