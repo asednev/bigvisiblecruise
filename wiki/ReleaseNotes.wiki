@@ -1,5 +1,8 @@
 #summary Information on different releases of BVC.
 
+==0.4==
+
+ * Added handling of intermittent connectivity issues.
 
 ==0.3==
 
