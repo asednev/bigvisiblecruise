@@ -10,14 +10,6 @@ namespace BigVisibleCruise
     public partial class BigVisibleCruiseWindow : Window
     {
 
-        //
-        //TODO: Convert overall strategy to event-based.
-        //
-        // I'm Starting to feel like the timers are getting very nasty. 
-        // Need to convert all this to an event model (much cleaner).
-        //
-
-
         readonly DispatcherTimer _timer = new DispatcherTimer();
         IResolver _dashboardResolver;
 
@@ -62,6 +54,8 @@ namespace BigVisibleCruise
             }
             catch (DashboardCommunicationException ex)
             {
+                this.DataContext = null;
+
                 // notify and retry
                 TimeSpan timeToShowMessage = Settings.Default.PollFrequency - TimeSpan.FromSeconds(3);
                 HumaneMessageWindow.Show("There was a problem connecting to " + ex.Uri + ".", timeToShowMessage);
