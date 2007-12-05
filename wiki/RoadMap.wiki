@@ -13,7 +13,7 @@ The current roadmap looks something like this...
 
 ===Later Than Sooner===
 
-  * Support for additional Cruise Control implementations
+  * ~~Support for additional Cruise Control implementations!! *Done. In 0.5*
   * Add the capability to support historic visualization and trend analysis
 
 ===Community-driven Requests===
