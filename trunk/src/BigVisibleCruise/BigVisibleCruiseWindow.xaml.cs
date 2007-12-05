@@ -28,7 +28,7 @@ namespace BigVisibleCruise
 
         private void InitializeMonitors()
         {
-            _dashboardResolver = CCNetDashboardResolver.FromUri(new Uri(Settings.Default.Dashboard));
+            _dashboardResolver = HttpProjectXmlResolver.FromUri(new Uri(Settings.Default.Dashboard));
         }
 
         private void InitializeTimerForContextUpdate()

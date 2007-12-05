@@ -45,8 +45,8 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="CCNetDashboardResolver_IntegrationTests.cs" />
-    <Compile Include="CCNetDashboardResolver_Tests.cs" />
+    <Compile Include="HttpProjectResolver_IntegrationTests.cs" />
+    <Compile Include="HttpProjectResolver_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
