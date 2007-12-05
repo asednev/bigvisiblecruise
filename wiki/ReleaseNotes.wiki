@@ -1,5 +1,9 @@
 #summary Information on different releases of BVC.
 
+==0.5 (In the Trunk)==
+
+ * Support for monitoring of other cruise implementations (java, .rb, etc.) as long as they have the capability to publish the expected xml format.
+
 ==0.4==
 
  * Added handling of intermittent connectivity issues.
