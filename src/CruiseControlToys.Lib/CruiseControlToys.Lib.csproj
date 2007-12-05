@@ -38,7 +38,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="DashboardCommunicationException.cs" />
-    <Compile Include="CCNetDashboardResolver.cs" />
+    <Compile Include="HttpProjectXmlResolver.cs" />
     <Compile Include="IResolver.cs" />
     <Compile Include="ProjectStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

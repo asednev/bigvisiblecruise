@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 namespace CruiseControlToys.Lib
 {
 
-    public class CCNetDashboardResolver : IResolver
+    public class HttpProjectXmlResolver : IResolver
     {
         private XmlDocument _projectStatusDocument;
         private Uri _uri;
@@ -31,23 +31,23 @@ namespace CruiseControlToys.Lib
             set { _uri = value; }
         }
 
-        private CCNetDashboardResolver()
+        private HttpProjectXmlResolver()
         {
 
         }
 
-        public static CCNetDashboardResolver FromUri(Uri location) 
+        public static HttpProjectXmlResolver FromUri(Uri location) 
         {            
-            CCNetDashboardResolver ccNetDashboardResolver = new CCNetDashboardResolver();
-            ccNetDashboardResolver.Uri = location;
-            return ccNetDashboardResolver;
+            HttpProjectXmlResolver httpProjectXmlResolver = new HttpProjectXmlResolver();
+            httpProjectXmlResolver.Uri = location;
+            return httpProjectXmlResolver;
         }
 
-        public static CCNetDashboardResolver FromProjectStatusDocument(XmlDocument projectStatusDocument)
+        public static HttpProjectXmlResolver FromProjectStatusDocument(XmlDocument projectStatusDocument)
         {
-            CCNetDashboardResolver ccNetDashboardResolver = new CCNetDashboardResolver();
-            ccNetDashboardResolver.ProjectStatusDocument = projectStatusDocument;
-            return ccNetDashboardResolver;
+            HttpProjectXmlResolver httpProjectXmlResolver = new HttpProjectXmlResolver();
+            httpProjectXmlResolver.ProjectStatusDocument = projectStatusDocument;
+            return httpProjectXmlResolver;
         }
 
         public IList<ProjectStatus> GetProjects() 
