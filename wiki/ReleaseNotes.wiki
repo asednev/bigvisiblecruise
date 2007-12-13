@@ -1,6 +1,7 @@
 #summary Information on different releases of BVC.
 
 ==0.6 (In The Trunk)==
+ * Support for full-screen toggle with the F11 key (contribution). Enhancement from http://code.google.com/p/bigvisiblecruise/issues/detail?id=14
 
 ==0.5 (Current Release)==
 
