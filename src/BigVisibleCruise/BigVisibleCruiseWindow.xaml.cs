@@ -17,9 +17,6 @@ namespace BigVisibleCruise
         public BigVisibleCruiseWindow()
         {
             InitializeComponent();
-
-            LoadSkin(new Uri("./Skins/LiveStackedStatus.xaml", UriKind.Relative));
-
             InitializeMonitors();
             SetDataContext();
             InitializeTimerForContextUpdate();
@@ -66,11 +63,6 @@ namespace BigVisibleCruise
             }
         }
 
-        private void LoadSkin(Uri skinUri)
-        {
-            ResourceDictionary skinResources = Application.LoadComponent(skinUri) as ResourceDictionary;
-            Application.Current.Resources = skinResources;
-        }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
