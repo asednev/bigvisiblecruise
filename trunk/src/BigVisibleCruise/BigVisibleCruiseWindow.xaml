@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Class="BigVisibleCruise.BigVisibleCruiseWindow"
     xmlns:local="clr-namespace:BigVisibleCruise;assembly="
-    xmlns:cctoys="clr-namespace:CruiseControlToys.Lib;assembly=CruiseControlToys.Lib"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     Icon="Cinema-Display-graphite.ico"
@@ -15,9 +14,8 @@
     <local:BuildStatusToColorConverter x:Key="BuildStatusToColorConverter" />
     <local:BuildNameToHumanizedNameConverter x:Key="BuildNameToHumanizedNameConverter" />
 
-    <cctoys:ProjectStatus x:Key="ProjectStatus" />
 
-    <DataTemplate x:Key="SimpleProjectStatusDataTemplate" DataType="{x:Type cctoys:ProjectStatus}">
+    <DataTemplate x:Key="SimpleStatusDataTemplate">
       <Border BorderBrush="Black" BorderThickness="1">
         <TextBlock TextAlignment="Center"
                    Padding="3"
@@ -25,10 +23,26 @@
                    Text="{Binding Path=Name, Converter={StaticResource BuildNameToHumanizedNameConverter}}" />
       </Border>
     </DataTemplate>
+
+    <Style x:Key="UniformStatusStyle" TargetType="{x:Type ItemsControl}">
+      <Setter Property="ItemsControl.ItemsPanel">
+        <Setter.Value>
+          <ItemsPanelTemplate>
+            <UniformGrid />
+          </ItemsPanelTemplate>          
+        </Setter.Value>
+      </Setter>
+      <Setter Property="ItemTemplate" Value="{StaticResource SimpleStatusDataTemplate}" />
+    </Style>
+
+    <Style x:Key="StackedStatusStyle" TargetType="{x:Type ItemsControl}">
+      <Setter Property="ItemTemplate" Value="{StaticResource SimpleStatusDataTemplate}" />
+    </Style>
+    
   </Window.Resources>
 
   <Viewbox Stretch="Fill">
-    <ItemsControl ItemsSource="{Binding}" ItemTemplate="{StaticResource SimpleProjectStatusDataTemplate}" />
+    <ItemsControl ItemsSource="{Binding}" Style="{StaticResource StackedStatusStyle}" />
   </Viewbox>
 
 </Window>
