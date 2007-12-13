@@ -9,40 +9,8 @@
     Title="Big Visible Cruise"
     KeyDown="Window_KeyDown">
 
-  <Window.Resources>
-
-    <local:BuildStatusToColorConverter x:Key="BuildStatusToColorConverter" />
-    <local:BuildNameToHumanizedNameConverter x:Key="BuildNameToHumanizedNameConverter" />
-
-
-    <DataTemplate x:Key="SimpleStatusDataTemplate">
-      <Border BorderBrush="Black" BorderThickness="1">
-        <TextBlock TextAlignment="Center"
-                   Padding="3"
-                   Background="{Binding Path=CurrentBuildStatus, Converter={StaticResource BuildStatusToColorConverter}}"
-                   Text="{Binding Path=Name, Converter={StaticResource BuildNameToHumanizedNameConverter}}" />
-      </Border>
-    </DataTemplate>
-
-    <Style x:Key="UniformStatusStyle" TargetType="{x:Type ItemsControl}">
-      <Setter Property="ItemsControl.ItemsPanel">
-        <Setter.Value>
-          <ItemsPanelTemplate>
-            <UniformGrid />
-          </ItemsPanelTemplate>          
-        </Setter.Value>
-      </Setter>
-      <Setter Property="ItemTemplate" Value="{StaticResource SimpleStatusDataTemplate}" />
-    </Style>
-
-    <Style x:Key="StackedStatusStyle" TargetType="{x:Type ItemsControl}">
-      <Setter Property="ItemTemplate" Value="{StaticResource SimpleStatusDataTemplate}" />
-    </Style>
-    
-  </Window.Resources>
-
   <Viewbox Stretch="Fill">
-    <ItemsControl ItemsSource="{Binding}" Style="{StaticResource StackedStatusStyle}" />
+    <ItemsControl ItemsSource="{Binding}" Style="{DynamicResource LiveStatusStyle}" />
   </Viewbox>
 
 </Window>

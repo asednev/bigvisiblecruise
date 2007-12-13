@@ -17,6 +17,9 @@ namespace BigVisibleCruise
         public BigVisibleCruiseWindow()
         {
             InitializeComponent();
+
+            LoadSkin(new Uri("./Skins/LiveStackedStatus.xaml", UriKind.Relative));
+
             InitializeMonitors();
             SetDataContext();
             InitializeTimerForContextUpdate();
@@ -61,6 +64,12 @@ namespace BigVisibleCruise
                 TimeSpan timeToShowMessage = Settings.Default.PollFrequency - TimeSpan.FromSeconds(3);
                 HumaneMessageWindow.Show("There was a problem connecting to " + ex.Uri + ".", timeToShowMessage);
             }
+        }
+
+        private void LoadSkin(Uri skinUri)
+        {
+            ResourceDictionary skinResources = Application.LoadComponent(skinUri) as ResourceDictionary;
+            Application.Current.Resources = skinResources;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
