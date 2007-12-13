@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 using BigVisibleCruise.Properties;
 using CruiseControlToys.Lib;
@@ -38,7 +39,7 @@ namespace BigVisibleCruise
             _timer.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e) 
+        private void Timer_Tick(object sender, EventArgs e)
         {
             SetDataContext();
         }
@@ -59,8 +60,26 @@ namespace BigVisibleCruise
                 // notify and retry
                 TimeSpan timeToShowMessage = Settings.Default.PollFrequency - TimeSpan.FromSeconds(3);
                 HumaneMessageWindow.Show("There was a problem connecting to " + ex.Uri + ".", timeToShowMessage);
-            }   
+            }
         }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F11)
+            {
+                if (WindowStyle != WindowStyle.None)
+                {   // go fullscreen
+                    WindowState = WindowState.Normal;
+                    WindowStyle = WindowStyle.None;
+                    Topmost = true;
+                    WindowState = WindowState.Maximized;
+                }
+                else
+                {   // return to normal
+                    WindowStyle = WindowStyle.SingleBorderWindow;
+                    Topmost = false;
+                }
+            }
+        }
     }
 }
