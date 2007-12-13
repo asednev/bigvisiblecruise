@@ -7,7 +7,8 @@
     WindowState="Maximized"
     Icon="Cinema-Display-graphite.ico"
     Title="Big Visible Cruise"
-    KeyDown="Window_KeyDown">
+    KeyDown="Window_KeyDown"
+    Background="Black">
 
   <Viewbox Stretch="Fill">
     <ItemsControl ItemsSource="{Binding}" Style="{DynamicResource LiveStatusStyle}" />

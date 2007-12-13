@@ -42,7 +42,15 @@ namespace BigVisibleCruise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public global::System.Collections.Specialized.StringCollection ProjectNamesToInclude {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ProjectNamesToInclude"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx")]
         public string Dashboard {
             get {
                 return ((string)(this["Dashboard"]));
@@ -51,9 +59,10 @@ namespace BigVisibleCruise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection ProjectNamesToInclude {
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\Skins\\LiveStackedStatus.xaml")]
+        public string Skin {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["ProjectNamesToInclude"]));
+                return ((string)(this["Skin"]));
             }
         }
     }
