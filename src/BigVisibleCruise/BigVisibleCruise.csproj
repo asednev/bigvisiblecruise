@@ -88,6 +88,9 @@
   <ItemGroup>
     <Page Include="BigVisibleCruiseWindow.xaml" />
     <Page Include="HumaneMessageWindow.xaml" />
+    <Page Include="Skins\LiveStackedStatus.xaml" />
+    <Page Include="Skins\LiveStatusBase.xaml" />
+    <Page Include="Skins\LiveUniformStatus.xaml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CruiseControlToys.Lib\CruiseControlToys.Lib.csproj">
