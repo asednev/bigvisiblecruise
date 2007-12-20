@@ -1,11 +1,13 @@
 #summary Information on different releases of BVC.
 
-==0.6 (In The Trunk)==
+==0.7 (In The Trunk)
+
+==0.6
  * Support for full-screen toggle with the F11 key (contribution). Enhancement from http://code.google.com/p/bigvisiblecruise/issues/detail?id=14
 
  * Added uniform grid visualization. Enhancement from http://code.google.com/p/bigvisiblecruise/issues/detail?id=13
 
- * Put in ability to dynamically load skins for alternate visualizations.
+ * Put in ability to load skins for alternate visualizations.
 
 ==0.5 (Current Release)==
 
