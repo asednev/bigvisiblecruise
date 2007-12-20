@@ -12,12 +12,14 @@ namespace BigVisibleCruise
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            LoadSkin(new Uri(Settings.Default.Skin, UriKind.Relative));
+            LoadSkin(Settings.Default.Skin);
             base.OnStartup(e);
         }
 
-        public void LoadSkin(Uri skinUri)
+        public void LoadSkin(string skinName)
         {
+            Uri skinUri = new Uri("./Skins/" + skinName + ".xaml", UriKind.Relative);
+
             ResourceDictionary skinResources = Application.LoadComponent(skinUri) as ResourceDictionary;
             Application.Current.Resources = skinResources;
         }

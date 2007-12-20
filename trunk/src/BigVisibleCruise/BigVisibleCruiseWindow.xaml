@@ -14,7 +14,7 @@
     <Border DockPanel.Dock="Bottom">
       <DockPanel LastChildFill="False">
         <TextBlock DockPanel.Dock="Left"  Text="Big Visible Cruise" FontSize="16" FontWeight="Bold"  Padding="10,10,10,10"  Foreground="White" FontFamily="Segoe Script, Verdana" />
-        <Button DockPanel.Dock="Right" Content="Options..." FontSize="9" Margin="10" IsEnabled="False" />
+        <!--<Button DockPanel.Dock="Right" Content="Options..." FontSize="9" Margin="10" IsEnabled="False" />-->
       </DockPanel>
     </Border>
     
