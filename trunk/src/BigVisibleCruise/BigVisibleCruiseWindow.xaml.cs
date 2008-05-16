@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using BigVisibleCruise.Commands;
 using BigVisibleCruise.Properties;
 using CruiseControlToys.Lib;
+using System.IO;
 
 namespace BigVisibleCruise
 {
@@ -17,22 +19,29 @@ namespace BigVisibleCruise
         public BigVisibleCruiseWindow()
         {
             InitializeComponent();
-            InitializeMonitors();
-            SetDataContext();
-            InitializeTimerForContextUpdate();
+            InitializeWindow();
         }
 
-        private void SetInitialDataContext()
-        {
-            SetDataContext();
-        }
-
-        private void InitializeMonitors()
+        private void InitializeWindow()
         {
             _dashboardResolver = HttpProjectXmlResolver.FromUri(new Uri(Settings.Default.Dashboard));
+
+            LoadSkin();
+            SetDataContext();
+            StartPollingForStatus();
         }
 
-        private void InitializeTimerForContextUpdate()
+        private void LoadSkin()
+        {
+            Uri skinUri = new Uri("./Skins/" + Settings.Default.Skin + ".xaml", UriKind.Relative);
+            ResourceDictionary skinResources = Application.LoadComponent(skinUri) as ResourceDictionary;
+
+            //todo: need to remove old one
+            Application.Current.Resources.MergedDictionaries.Add(skinResources);
+        }
+
+
+        private void StartPollingForStatus()
         {
             _timer.Interval = Settings.Default.PollFrequency;
             _timer.Tick += Timer_Tick;
@@ -48,38 +57,35 @@ namespace BigVisibleCruise
         {
             try
             {
-                this.DataContext =
-                    (Settings.Default.ProjectNamesToInclude == null)
-                        ? _dashboardResolver.GetProjects()
-                        : _dashboardResolver.GetProjectsByName(Settings.Default.ProjectNamesToInclude);
+                this.DataContext = _dashboardResolver.GetProjects();
             }
             catch (DashboardCommunicationException ex)
             {
                 this.DataContext = null;
-
-                // notify and retry
-                TimeSpan timeToShowMessage = Settings.Default.PollFrequency - TimeSpan.FromSeconds(3);
+                TimeSpan timeToShowMessage = TimeSpan.FromSeconds(3);
                 HumaneMessageWindow.Show("There was a problem connecting to " + ex.Uri + ".", timeToShowMessage);
             }
         }
-
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F11)
             {
-                if (WindowStyle != WindowStyle.None)
-                {   // go fullscreen
-                    WindowState = WindowState.Normal;
-                    WindowStyle = WindowStyle.None;
-                    Topmost = true;
-                    WindowState = WindowState.Maximized;
-                }
-                else
-                {   // return to normal
-                    WindowStyle = WindowStyle.SingleBorderWindow;
-                    Topmost = false;
-                }
+                CommandContainer.FullscreenCommand.Execute(this);
+            }
+
+            if (e.Key == Key.F12)
+            {
+                SettingsWindow settingsWindow = new SettingsWindow();
+                settingsWindow.Owner = this;
+                settingsWindow.ShowDialog();
+
+                InitializeWindow();
+            }
+
+            if (e.Key == Key.F5)
+            {
+                InitializeWindow();
             }
         }
     }

@@ -1,0 +1,45 @@
+﻿<Window x:Class="BigVisibleCruise.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Properties="clr-namespace:BigVisibleCruise.Properties;assembly="
+    Title="BigVisibleCruise" Height="270" Width="540"
+    >
+
+	<Border Padding="10">
+
+		<Grid>
+
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="150"></ColumnDefinition>
+				<ColumnDefinition Width="350"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="16" Height="50" HorizontalAlignment="Stretch" Foreground="White" Background="Black"   FontWeight="Bold"  Padding="10,10,10,10" FontFamily="Segoe Script, Verdana">Big Visible Cruise Settings</Label>
+
+			<Label Grid.Column="0" Grid.Row="1" Height="25" Margin="2">Auto Refresh Rate</Label>
+			<TextBox Grid.Column="1" Grid.Row="1" Height="25" Margin="2" Text="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Mode=TwoWay}"></TextBox>
+
+			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2">Xml Url</Label>
+			<TextBox Grid.Column="1" Grid.Row="2"  Height="25" Margin="2" Text="{Binding Source={x:Static Properties:Settings.Default}, Path=Dashboard, Mode=TwoWay}"></TextBox>
+
+			<Label Grid.Column="0" Grid.Row="3" Height="25" Margin="2">Skin</Label>
+			<ComboBox Grid.Column="1" Grid.Row="3" Height="25" Margin="2" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" SelectedValuePath="Content">
+				<ComboBoxItem>LiveStackedStatus</ComboBoxItem>
+				<ComboBoxItem>LiveUniformStatus</ComboBoxItem>
+			</ComboBox>
+
+			<Button Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Grid.Row="4" Height="25" Margin="4" Click="SaveConfigurationSettings_Click">Save Configuration Settings</Button>
+
+		</Grid>
+
+	</Border>
+
+</Window>

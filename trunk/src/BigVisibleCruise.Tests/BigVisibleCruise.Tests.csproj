@@ -41,14 +41,15 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="BuildNameToHumanizedNameConverter_IntegrationTests.cs" />
-    <Compile Include="BuildNameToHumanizedNameConverter_Test.cs" />
-    <Compile Include="BuildStatusToColorConverter_Test.cs" />
+    <Compile Include="Commands\FullscreenCommand_Test.cs" />
+    <Compile Include="Converters\BuildNameToHumanizedNameConverter_Test.cs" />
+    <Compile Include="Converters\BuildStatusToColorConverter_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

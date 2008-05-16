@@ -39,6 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="PresentationDesignDeveloper, Version=0.0.4030.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Microsoft Visual Studio 8\Common7\IDE\Cider\PresentationDesignDeveloper.DLL</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -67,8 +71,10 @@
     <Compile Include="BigVisibleCruiseWindow.xaml.cs">
       <DependentUpon>BigVisibleCruiseWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BuildNameToHumanizedNameConverter.cs" />
-    <Compile Include="BuildStatusToColorConverter.cs" />
+    <Compile Include="Converters\BuildNameToHumanizedNameConverter.cs" />
+    <Compile Include="Converters\BuildStatusToColorConverter.cs" />
+    <Compile Include="Commands\CommandContainer.cs" />
+    <Compile Include="Commands\FullscreenCommand.cs" />
     <Compile Include="HumaneMessageWindow.xaml.cs">
       <DependentUpon>HumaneMessageWindow.xaml</DependentUpon>
     </Compile>
@@ -77,6 +83,10 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -88,6 +98,7 @@
   <ItemGroup>
     <Page Include="BigVisibleCruiseWindow.xaml" />
     <Page Include="HumaneMessageWindow.xaml" />
+    <Page Include="SettingsWindow.xaml" />
     <Page Include="Skins\LiveStackedStatus.xaml" />
     <Page Include="Skins\LiveStatusBase.xaml" />
     <Page Include="Skins\LiveUniformStatus.xaml" />
