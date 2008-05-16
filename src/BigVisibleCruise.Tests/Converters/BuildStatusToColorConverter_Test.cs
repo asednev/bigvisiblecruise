@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Data;
 using System.Windows.Media;
+using BigVisibleCruise.Converters;
 using NUnit.Framework;
 
-namespace BigVisibleCruise.Tests
+namespace BigVisibleCruise.Tests.Converters
 {
     [TestFixture]
     public class BuildStatusToColorConverter_Test

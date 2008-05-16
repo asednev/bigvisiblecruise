@@ -1,8 +1,9 @@
 ﻿using System.Windows.Data;
+using BigVisibleCruise.Converters;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
-namespace BigVisibleCruise.Tests
+namespace BigVisibleCruise.Tests.Converters
 {
     [TestFixture]
     public class BuildNameToHumanizedNameConverter_Test

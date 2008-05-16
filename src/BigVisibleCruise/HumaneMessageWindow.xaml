@@ -35,7 +35,5 @@
   <Border x:Name="Container" CornerRadius="8" Background="Black">
     <TextBlock x:Name="Message" Foreground="White" Width="Auto" TextAlignment="Center" FontSize="30" Padding="10" />
   </Border>
-  
-
-
+	
 </Window>

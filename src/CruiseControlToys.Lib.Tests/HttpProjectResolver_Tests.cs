@@ -53,29 +53,6 @@ namespace CruiseControlToys.Lib.Tests
         }
 
         [Test]
-        public void projects_can_be_filtered_with_a_filter_specification_applied()
-        {
-            string projectXml = @"<Projects>
-                                <Project name='FooProject' category='' activity='Sleeping' lastBuildStatus='Success' lastBuildLabel='292' lastBuildTime='2007-11-16T15:03:46.358374-05:00' nextBuildTime='2007-11-16T15:31:00.2683768-05:00' webUrl='http://foo/ccnet'/>
-                                <Project name='BarProject' category='' activity='Sleeping' lastBuildStatus='Failure' lastBuildLabel='8' lastBuildTime='2007-11-16T05:00:00.2127436-05:00' nextBuildTime='2007-11-17T05:00:00-05:00' webUrl='http://foo/ccnet'/>
-                                <Project name='One_More_Project' category='' activity='Sleeping' lastBuildStatus='Failure' lastBuildLabel='39' lastBuildTime='2007-11-16T05:50:00.1105168-05:00' nextBuildTime='2007-11-17T05:50:00-05:00' webUrl='http://foo/ccnet'/>
-                           </Projects>";
-
-            XmlDocument statusDocument = new XmlDocument();
-            statusDocument.LoadXml(projectXml);
-
-            HttpProjectXmlResolver resolver = HttpProjectXmlResolver.FromProjectStatusDocument(statusDocument);
-
-            StringCollection projectsToInclude = new StringCollection();
-            projectsToInclude.Add("BarProject");
-
-            IList<ProjectStatus> statuses = resolver.GetProjectsByName(projectsToInclude);
-
-            Assert.That(statuses.Count, Is.EqualTo(1));
-            Assert.That(statuses[0].Name, Is.EqualTo("BarProject"));
-        }
-
-        [Test]
         public void build_status_is_success_if_sleeping_and_last_build_status_was_success()
         {
             string projectXml = @"  <Projects>

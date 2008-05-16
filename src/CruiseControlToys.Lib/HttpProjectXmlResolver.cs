@@ -69,23 +69,6 @@ namespace CruiseControlToys.Lib
             return list; 
         }
 
-        public IList<ProjectStatus> GetProjectsByName(StringCollection projectNamesToInclude)
-        {
-
-            IList<ProjectStatus> list = GetProjects();
-            IList<ProjectStatus> filteredList = new List<ProjectStatus>();
-
-            foreach (ProjectStatus status in list)
-            {
-                if (projectNamesToInclude.Contains(status.Name))
-                {
-                    filteredList.Add(status);
-                }
-            }
-
-            return filteredList;             
-        }
-
         private void RefreshProjectStatusDocumentIfThereIsAnHttpUri()
         {
             if (this.Uri != null && this.Uri.Scheme.StartsWith("http"))

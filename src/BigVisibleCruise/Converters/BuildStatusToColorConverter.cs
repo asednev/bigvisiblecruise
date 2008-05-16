@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace BigVisibleCruise
+namespace BigVisibleCruise.Converters
 {
     [ValueConversion(typeof(string), typeof(SolidColorBrush))]
     public class BuildStatusToColorConverter : IValueConverter
