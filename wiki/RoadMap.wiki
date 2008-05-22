@@ -6,16 +6,10 @@ The current roadmap looks something like this...
 
 ===Sooner Than Later===
  
-  * ~~Setup mailing list~~ *Done.*
-  * Add contribution / development guidelines
-  * ~~Add the ability to filter projects from the views~~ *Done. In 0.3*
-  * Provide additional real-time visualizations
-
-===Later Than Sooner===
-
-  * ~~Support for additional Cruise Control implementations~~ *Done. In 0.5*
-  * Add the capability to support historic visualization and trend analysis
-
+  * NAnt script
+  * Windows installer
+  * 1.0 deployment
+ 
 ===Community-driven Requests===
 
 Can be seen on the issues tab.
