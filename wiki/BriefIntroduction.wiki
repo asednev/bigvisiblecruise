@@ -14,9 +14,36 @@ BVC has a very simple and informative interface. A new row is added to the scree
 
 BVC was intended to run full-screen on a dedicated monitor.
 
+The default BVC setup will point to the CCNet Live site.
+
+http://farm3.static.flickr.com/2015/2514731478_13114b868d.jpg
+
 =Setting Up BVC=
 
 Setting up the application is easy. Very Easy. Copy the distribution from the Downloads page (http://code.google.com/p/bigvisiblecruise/downloads), unzip it, add the url for the Cruise project xml, and run !BigVisibleCruise.exe.
+
+=Shortcuts=
+All the interaction with BVC can be done easily using keyboard shortcuts. There are only a few things that you can do, so these key combos are displayed on the bottom of the screen in very small type.
+
+|| *Shortcut Key* || *Functionality* ||
+||F5||Forces a refresh (regardless of poll interval)||
+||F11||Toggle Fullscreen Mode||
+||F12||Open the options window||
+
+=Configuring BVC=
+
+F12 brings up the configuration...
+
+http://farm3.static.flickr.com/2160/2513907207_0d32a88e91_o.png
+
+The options that are available are:
+
+|| *Field* || *Meaning* ||
+||Auto Refresh Rate||The frequency that BVC will poll for status (hh:mm:ss)||
+||Xml Url||This is the url to the xml status (e.g. http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx) ||
+||Skin||The view for seeing the current status||
+
+Clicking the save button will apply changes immediately.
 
 =Dependencies For Running BVC=
 
@@ -28,4 +55,8 @@ The Big Visible Cruise display makes use of the REST-style interface exposed fro
 
 You'll also need .Net 3.0 installed.
 
-The source is provided as a VS2005 solution and uses the WPF Extensions for .Net Framework 3.0.
+=Developing For BVC=
+
+The source is provided as a VS2005 solution and uses the WPF Extensions for .Net Framework 3.0. This will be upgraded to 2008 as soon as someone requests it or when I take the time to upgrade to 2008.
+
+If you would like to submit modifications, patches are appreciated.
