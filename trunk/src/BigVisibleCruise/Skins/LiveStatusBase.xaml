@@ -4,16 +4,17 @@
     xmlns:Converters="clr-namespace:BigVisibleCruise.Converters;assembly="
     >
 
-  <Converters:BuildStatusToColorConverter x:Key="BuildStatusToColorConverter" />
-  <Converters:BuildNameToHumanizedNameConverter x:Key="BuildNameToHumanizedNameConverter" />
-  
-  <DataTemplate x:Key="SimpleStatusDataTemplate">
-    <Border BorderBrush="Black" BorderThickness="1">
-      <TextBlock TextAlignment="Center"
-                 Padding="3"
-                 Background="{Binding Path=CurrentBuildStatus, Converter={StaticResource BuildStatusToColorConverter}}"
-                 Text="{Binding Path=Name, Converter={StaticResource BuildNameToHumanizedNameConverter}}" />
-    </Border>
-  </DataTemplate>
-  
-</ResourceDictionary>
+	<Converters:BuildStatusToColorConverter x:Key="BuildStatusToColorConverter" />
+	<Converters:BuildNameToHumanizedNameConverter x:Key="BuildNameToHumanizedNameConverter" />
+
+	<DataTemplate x:Key="SimpleStatusDataTemplate">
+		<Border BorderBrush="Black" BorderThickness="1">
+		  <TextBlock TextAlignment="Center"
+					 Padding="3"
+					 Background="{Binding Path=CurrentBuildStatus, Converter={StaticResource BuildStatusToColorConverter}}"
+					 Text="{Binding Path=Name, Converter={StaticResource BuildNameToHumanizedNameConverter}}" />
+		</Border>
+	</DataTemplate>
+
+
+</ResourceDictionary>	
