@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Properties="clr-namespace:BigVisibleCruise.Properties;assembly="
     xmlns:Converters="clr-namespace:BigVisibleCruise.Converters;assembly="
-    Title="BigVisibleCruise" Height="300" Width="540"
+    Title="Settings" SizeToContent="WidthAndHeight" ShowInTaskbar="False"
     >
 
 	<Window.Resources>

@@ -24,7 +24,7 @@ namespace BigVisibleCruise
 
         private void InitializeWindow()
         {
-            _dashboardResolver = HttpProjectXmlResolver.FromUri(new Uri(Settings.Default.Dashboard));
+             _dashboardResolver = HttpProjectXmlResolver.FromUri(new Uri(Settings.Default.Dashboard));
 
             LoadSkin();
             SetDataContext();
