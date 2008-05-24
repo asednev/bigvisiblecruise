@@ -42,9 +42,9 @@
 
 
 			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2">Skin</Label>
-			<ComboBox Grid.Column="1" Grid.Row="4" Height="25" Margin="2" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" SelectedValuePath="Content">
-				<ComboBoxItem>LiveStackedStatus</ComboBoxItem>
-				<ComboBoxItem>LiveUniformStatus</ComboBoxItem>
+			<ComboBox Grid.Column="1" Grid.Row="4" Height="25" Margin="2" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" SelectedValuePath="Tag">
+				<ComboBoxItem Tag="LiveStackedStatus">Stacked</ComboBoxItem>
+				<ComboBoxItem Tag="LiveUniformStatus">Grid</ComboBoxItem>
 			</ComboBox>
 
 			<Button Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Grid.Row="6" Height="25" Margin="4" Click="SaveConfigurationSettings_Click">Save Configuration Settings</Button>
