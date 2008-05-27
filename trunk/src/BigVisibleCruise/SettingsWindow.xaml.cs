@@ -29,5 +29,10 @@ namespace BigVisibleCruise
             Properties.Settings.Default.Save();
             this.Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

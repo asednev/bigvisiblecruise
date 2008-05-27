@@ -17,7 +17,7 @@ namespace BigVisibleCruise.Tests.Converters
         {
             IValueConverter converter = new SliderValueInSecondsToReadableTimeFormatConverter();
             string convertedText = (string) converter.Convert(15d, null, null, null);
-            Assert.That(convertedText, Is.EqualTo("15 seconds"));
+            Assert.That(convertedText, Is.EqualTo("Every 15 seconds"));
         }
         
         [Test]
@@ -25,7 +25,7 @@ namespace BigVisibleCruise.Tests.Converters
         {
             IValueConverter converter = new SliderValueInSecondsToReadableTimeFormatConverter();
             string convertedText = (string)converter.Convert(15.333333466666, null, null, null);
-            Assert.That(convertedText, Is.EqualTo("15 seconds"));
+            Assert.That(convertedText, Is.EqualTo("Every 15 seconds"));
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace BigVisibleCruise.Tests.Converters
         {
             IValueConverter converter = new SliderValueInSecondsToReadableTimeFormatConverter();
             string convertedText = (string)converter.Convert(60d, null, null, null);
-            Assert.That(convertedText, Is.EqualTo("1 minute"));
+            Assert.That(convertedText, Is.EqualTo("Every 1 minute"));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace BigVisibleCruise.Tests.Converters
         {
             IValueConverter converter = new SliderValueInSecondsToReadableTimeFormatConverter();
             string convertedText = (string)converter.Convert(75d, null, null, null);
-            Assert.That(convertedText, Is.EqualTo("1 minute and 15 seconds"));
+            Assert.That(convertedText, Is.EqualTo("Every 1 minute and 15 seconds"));
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace BigVisibleCruise.Tests.Converters
         {
             IValueConverter converter = new SliderValueInSecondsToReadableTimeFormatConverter();
             string convertedText = (string)converter.Convert(315d, null, null, null);
-            Assert.That(convertedText, Is.EqualTo("5 minutes and 15 seconds"));
+            Assert.That(convertedText, Is.EqualTo("Every 5 minutes and 15 seconds"));
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace BigVisibleCruise.Tests.Converters
         {
             IValueConverter converter = new SliderValueInSecondsToReadableTimeFormatConverter();
             string convertedText = (string)converter.Convert((3615d), null, null, null);
-            Assert.That(convertedText, Is.EqualTo("60 minutes and 15 seconds"));
+            Assert.That(convertedText, Is.EqualTo("Every 60 minutes and 15 seconds"));
         }
     }
 }
