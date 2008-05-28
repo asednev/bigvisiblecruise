@@ -58,6 +58,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.IdentityModel" />
     <Page Include="Simple Styles.xaml" />
+    <Resource Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -93,6 +94,7 @@
       <SubType>Code</SubType>
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validations\DashboardUrlValidationRule.cs" />
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

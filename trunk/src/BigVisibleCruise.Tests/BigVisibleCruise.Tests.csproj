@@ -54,6 +54,7 @@
     <Compile Include="Converters\SliderValueInSecondsToReadableTimeFormatConverter_Test.cs" />
     <Compile Include="Converters\TimeSpanToDoubleConverter_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\DashboardUrlValidationRule_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BigVisibleCruise\BigVisibleCruise.csproj">
