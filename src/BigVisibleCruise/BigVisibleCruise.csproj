@@ -77,6 +77,7 @@
     <Compile Include="Converters\BuildStatusToColorConverter.cs" />
     <Compile Include="Commands\CommandContainer.cs" />
     <Compile Include="Commands\FullscreenCommand.cs" />
+    <Compile Include="Converters\CruiseDashboardToStatusUrlConverter.cs" />
     <Compile Include="Converters\SliderValueInSecondsToReadableTimeFormatConverter.cs" />
     <Compile Include="Converters\TimeSpanToDoubleConverter.cs" />
     <Compile Include="HumaneMessageWindow.xaml.cs">
