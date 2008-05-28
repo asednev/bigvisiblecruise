@@ -58,6 +58,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.IdentityModel" />
     <Page Include="Simple Styles.xaml" />
+    <Resource Include="check.png" />
     <Resource Include="stop.png" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +75,7 @@
     <Compile Include="BigVisibleCruiseWindow.xaml.cs">
       <DependentUpon>BigVisibleCruiseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BooleanToVisibleConverter.cs" />
     <Compile Include="Converters\BuildNameToHumanizedNameConverter.cs" />
     <Compile Include="Converters\BuildStatusToColorConverter.cs" />
     <Compile Include="Commands\CommandContainer.cs" />
