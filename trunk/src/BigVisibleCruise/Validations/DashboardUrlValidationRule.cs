@@ -15,7 +15,7 @@ namespace BigVisibleCruise.Validations
 
             if (text == string.Empty)
             {
-                return new ValidationResult(false, "Please enter a dasbhoard url. This is the page that lists out the projects that are hosted by Cruise. You can see an example at http://ccnetlive.thoughtworks.com/ccnet");
+                return new ValidationResult(false, "Please enter a dasbhoard url.\n\nYou can see an example at http://ccnetlive.thoughtworks.com/ccnet");
             }
 
             try
@@ -25,10 +25,9 @@ namespace BigVisibleCruise.Validations
             }
             catch
             {
-                string errorMessage = string.Format("There was a problem trying to get information from {0}. Make sure that you can browse to this page in a browser and that you are using vX.X or higher of Cruise Control.", text);
+                string errorMessage = string.Format("There was a problem trying to get information from {0}.\n\nMake sure that you can browse to this page in a browser.\n\nYou should also be using a recent release of Cruise.", text);
                 return new ValidationResult(false, errorMessage);
             }
-
 
             return ValidationResult.ValidResult;
         }
