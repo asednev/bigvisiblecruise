@@ -50,6 +50,7 @@
     <Compile Include="Commands\FullscreenCommand_Test.cs" />
     <Compile Include="Converters\BuildNameToHumanizedNameConverter_Test.cs" />
     <Compile Include="Converters\BuildStatusToColorConverter_Test.cs" />
+    <Compile Include="Converters\CruiseDashboardToStatusUrlConverter_Test.cs" />
     <Compile Include="Converters\SliderValueInSecondsToReadableTimeFormatConverter_Test.cs" />
     <Compile Include="Converters\TimeSpanToDoubleConverter_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
