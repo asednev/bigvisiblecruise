@@ -26,8 +26,11 @@ namespace BigVisibleCruise
 
         void SaveConfigurationSettings_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.Save();
-            this.Close();
+            if (Validation.GetErrors(UrlTextBox).Count == 0) //HACK: There has to be a better way to do this.
+            {
+                Properties.Settings.Default.Save();
+                this.Close();
+            }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
