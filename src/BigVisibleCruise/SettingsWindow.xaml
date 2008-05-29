@@ -12,6 +12,7 @@
     >
 
 	<Window.Resources>
+		   
 		<Converters:TimeSpanToDoubleConverter x:Key="TimeSpanToDoubleConverter" />
 		<Converters:SliderValueInSecondsToReadableTimeFormatConverter x:Key="SliderValueInSecondsToReadableTimeFormatConverter" />
 		<Converters:CruiseDashboardToStatusUrlConverter x:Key="CruiseDashboardToStatusUrlConverter" />
@@ -31,27 +32,6 @@
 				</Trigger>
 			</Style.Triggers>
 		</Style>
-
-		<!--		<Style TargetType="{x:Type TextBox}">-->
-		<!--			<Setter Property="Validation.ErrorTemplate">-->
-		<!--				<Setter.Value>-->
-		<!--					<ControlTemplate>-->
-		<!--						<DockPanel LastChildFill="True">-->
-		<!--							<TextBlock DockPanel.Dock="Right"-->
-		<!--							  Foreground="Red"-->
-		<!--							  Margin="5"-->
-		<!--							  FontSize="8pt"-->
-		<!--							  Text="{Binding ElementName=MyAdorner,-->
-		<!--                               Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">-->
-		<!--							</TextBlock>-->
-		<!--							<Border BorderBrush="Red" BorderThickness="1">-->
-		<!--								<AdornedElementPlaceholder Name="MyAdorner" />-->
-		<!--							</Border>-->
-		<!--						</DockPanel>-->
-		<!--					</ControlTemplate>-->
-		<!--				</Setter.Value>-->
-		<!--			</Setter>-->
-		<!--		</Style>-->
 
 	</Window.Resources>
 
@@ -78,7 +58,7 @@
 
 			<Label Grid.Column="0" Grid.Row="1" Height="25" Margin="2,5,2,5" Content="Dashboard Url"/>
 			<DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
-				<Image DockPanel.Dock="Right" Source="check.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" Height="25" Width="25" Margin="10,0,0,0" />
+				<!--<Image DockPanel.Dock="Right" Source="check.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" Height="25" Width="25" Margin="10,0,0,0" />-->
 				<Image DockPanel.Dock="Right" Source="stop.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}}" Height="25" Width="25" Margin="10,0,0,0" />
 				<TextBox Name="UrlTextBox" Style="{StaticResource TextBoxWithValidation}" Height="25" Width="350">
 					<Binding Path="Dashboard" UpdateSourceTrigger="LostFocus" Mode="TwoWay" Source="{x:Static BigVisibleCruise_Properties:Settings.Default}" Converter="{StaticResource CruiseDashboardToStatusUrlConverter}">
@@ -92,7 +72,8 @@
 			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5" VerticalAlignment="Top" Content="Auto Refresh Rate"/>
 			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" Foreground="Gray" Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
 			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5" AutoToolTipPlacement="None"
-					Minimum="15" Maximum="600" Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
+					Minimum="15" Maximum="600" SmallChange="15" LargeChange="60" 
+					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
 
 			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5" Content="Skin"/>
 			<ComboBox Grid.Column="1" Grid.Row="4" Height="25" Margin="2,5,2,5" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" SelectedValuePath="Tag">
@@ -101,10 +82,9 @@
 			</ComboBox>
 
 			<DockPanel HorizontalAlignment="Right" Margin="0,10,0,0" Width="Auto" LastChildFill="False" Grid.Column="1" Grid.Row="5" VerticalAlignment="Stretch" Grid.ColumnSpan="1">
-				<TextBlock DockPanel.Dock="Left"  Padding="10,1,10,1" Margin="2,5,10,5" FontStyle="Italic">
-					<Hyperlink Click="Cancel_Click">Cancel</Hyperlink>
+				<TextBlock DockPanel.Dock="Right"  Padding="10,1,10,1" Margin="2,5,10,5" FontStyle="Italic">
+					<Hyperlink Click="Close_Click">Close</Hyperlink>
 				</TextBlock>
-				<Button DockPanel.Dock="Right" Click="SaveConfigurationSettings_Click" Content="Save Settings" IsDefault="True" Margin="2,5,2,5" Padding="10,1,10,1"/>
 			</DockPanel>
 
 		</Grid>
