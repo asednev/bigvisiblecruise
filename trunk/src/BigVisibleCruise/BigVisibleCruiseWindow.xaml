@@ -6,7 +6,7 @@
     Icon="Cinema-Display-graphite.ico"
     Title="Big Visible Cruise"
 	KeyDown="Window_KeyDown" 
-    Background="Black" Height="324" Width="396">
+    Background="Black" Height="400" Width="600">
 
 	<DockPanel>
 
