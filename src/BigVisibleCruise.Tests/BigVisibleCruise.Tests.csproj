@@ -48,6 +48,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Commands\FullscreenCommand_Test.cs" />
+    <Compile Include="Converters\BooleanToBooleanConverter_Test.cs" />
     <Compile Include="Converters\BooleanToVisibleConverter_Test.cs" />
     <Compile Include="Converters\BuildNameToHumanizedNameConverter_Test.cs" />
     <Compile Include="Converters\BuildStatusToColorConverter_Test.cs" />

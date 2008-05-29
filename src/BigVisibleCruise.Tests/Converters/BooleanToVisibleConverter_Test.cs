@@ -32,7 +32,7 @@ namespace BigVisibleCruise.Tests.Converters
         public void false_results_in_visible_when_parameter_is_specified()
         {
             IValueConverter converter = new BooleanToVisibleConverter();
-            Assert.That(converter.Convert(true, null, false, null), Is.EqualTo(Visibility.Collapsed));
+            Assert.That(converter.Convert(true, null, "false", null), Is.EqualTo(Visibility.Collapsed));
         }
     }
 
