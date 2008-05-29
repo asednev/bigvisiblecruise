@@ -121,6 +121,10 @@
   <ItemGroup>
     <Resource Include="Cinema-Display-graphite.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="grid.png" />
+    <Resource Include="stacked.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" />
   <PropertyGroup>
