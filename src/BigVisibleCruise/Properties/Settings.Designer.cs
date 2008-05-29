@@ -49,7 +49,7 @@ namespace BigVisibleCruise.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00:00:15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:30")]
         public global::System.TimeSpan PollFrequency {
             get {
                 return ((global::System.TimeSpan)(this["PollFrequency"]));
