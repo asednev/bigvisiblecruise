@@ -74,6 +74,8 @@
     <Compile Include="BigVisibleCruiseWindow.xaml.cs">
       <DependentUpon>BigVisibleCruiseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\RefreshCommand.cs" />
+    <Compile Include="Commands\ShowSettingsCommand.cs" />
     <Compile Include="Converters\BooleanToBooleanConverter.cs" />
     <Compile Include="Converters\BooleanToVisibleConverter.cs" />
     <Compile Include="Converters\BuildNameToHumanizedNameConverter.cs" />

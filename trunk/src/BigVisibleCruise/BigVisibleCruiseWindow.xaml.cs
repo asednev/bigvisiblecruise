@@ -40,7 +40,6 @@ namespace BigVisibleCruise
             Application.Current.Resources.MergedDictionaries.Add(skinResources);
         }
 
-
         private void StartPollingForStatus()
         {
             _timer.Interval = Settings.Default.PollFrequency;
@@ -67,26 +66,9 @@ namespace BigVisibleCruise
             }
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        internal void ReInitializeWindow()
         {
-            if (e.Key == Key.F11)
-            {
-                CommandContainer.FullscreenCommand.Execute(this);
-            }
-
-            if (e.Key == Key.F12)
-            {
-                SettingsWindow settingsWindow = new SettingsWindow();
-                settingsWindow.Owner = this;
-                settingsWindow.ShowDialog();
-
-                InitializeWindow();
-            }
-
-            if (e.Key == Key.F5)
-            {
-                InitializeWindow();
-            }
+            InitializeWindow();
         }
     }
 }

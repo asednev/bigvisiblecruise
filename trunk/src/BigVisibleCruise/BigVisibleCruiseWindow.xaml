@@ -1,11 +1,11 @@
 ﻿<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:Commands="clr-namespace:BigVisibleCruise.Commands;assembly=" 
     x:Class="BigVisibleCruise.BigVisibleCruiseWindow"
     WindowStartupLocation="CenterScreen"
     Icon="Cinema-Display-graphite.ico"
     Title="Big Visible Cruise"
-	KeyDown="Window_KeyDown" 
     Background="Black" 
 	Height="400" Width="600">
 
@@ -35,6 +35,20 @@
 		</Style>
 		
 	</Window.Resources>
+
+	<Window.InputBindings>
+
+		<KeyBinding Key="F5" Command="{x:Static Commands:CommandContainer.RefreshCommand}"/>
+		<KeyBinding Key="F11" Command="{x:Static Commands:CommandContainer.FullscreenCommand}" />
+		<KeyBinding Key="F12" Command="{x:Static Commands:CommandContainer.ShowSettingsCommand}"/>
+		<KeyBinding Key="Escape" Command="{x:Static Commands:CommandContainer.FullscreenCommand}" />
+		
+		<!--
+		Not sure why this doesn't work... Created a HACK in the commands to compensate as a short-term solution.
+		<KeyBinding Command="{x:Static Commands:CommandContainer.FullscreenCommand}" 
+					CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Key="F11"/>
+		-->
+	</Window.InputBindings>
 	
 	<DockPanel>
 
@@ -42,15 +56,18 @@
 		  <DockPanel LastChildFill="False">
 			<TextBlock DockPanel.Dock="Left"  Style="{StaticResource Logo}" Text="Big Visible Cruise" />
 			<TextBlock DockPanel.Dock="Right" Style="{StaticResource StandardNavigationContainer}">
-				<Hyperlink Style="{StaticResource HostAction}">Open Options</Hyperlink>
+				<Hyperlink Style="{StaticResource HostAction}"
+						   Command="{x:Static Commands:CommandContainer.ShowSettingsCommand}">Open BVC Settings</Hyperlink>
 				<TextBlock>(F12)</TextBlock>
 			</TextBlock>
 			<TextBlock DockPanel.Dock="Right" Style="{StaticResource StandardNavigationContainer}">
-				<Hyperlink Style="{StaticResource HostAction}">Toggle Fullscreen</Hyperlink>
+				<Hyperlink Style="{StaticResource HostAction}" 
+						   Command="{x:Static Commands:CommandContainer.FullscreenCommand}">Toggle Fullscreen</Hyperlink>
 				<TextBlock>(F11)</TextBlock>
 			</TextBlock>
 			<TextBlock DockPanel.Dock="Right" Style="{StaticResource StandardNavigationContainer}">
-				<Hyperlink Style="{StaticResource HostAction}">Force Refresh</Hyperlink>
+				<Hyperlink Style="{StaticResource HostAction}"
+						   Command="{x:Static Commands:CommandContainer.RefreshCommand}">Force Refresh</Hyperlink>
 				<TextBlock>(F5)</TextBlock>
 			</TextBlock>		  
 		  </DockPanel>

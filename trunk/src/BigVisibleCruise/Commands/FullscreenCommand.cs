@@ -22,8 +22,8 @@ namespace BigVisibleCruise.Commands
 
             if (targetWindow == null)
             {
-                throw new ArgumentException(
-                    string.Format("Expected a type of {0} but received {1}.", typeof(Window).Name, parameter.GetType().Name), "parameter");
+                //HACK: Couldn't figure out how to pass this in from XAML
+                targetWindow = Application.Current.MainWindow;
             }
 
             if (targetWindow.WindowStyle != WindowStyle.None)
