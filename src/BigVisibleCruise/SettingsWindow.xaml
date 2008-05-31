@@ -16,7 +16,7 @@
 		<Converters:TimeSpanToDoubleConverter x:Key="TimeSpanToDoubleConverter" />
 		<Converters:SliderValueInSecondsToReadableTimeFormatConverter x:Key="SliderValueInSecondsToReadableTimeFormatConverter" />
 		<Converters:CruiseDashboardToStatusUrlConverter x:Key="CruiseDashboardToStatusUrlConverter" />
-		<Converters:BooleanToVisibleConverter x:Key="BooleanToVisibleConverter" />		
+		<Converters:BooleanToVisibleConverter x:Key="BooleanToVisibleConverter" />
 
 		<Style x:Key="TextBoxWithValidation" TargetType="{x:Type TextBox}">
 			<Setter Property="Validation.ErrorTemplate">
@@ -31,6 +31,26 @@
 					<Setter Property="Foreground" Value="Red" />
 				</Trigger>
 			</Style.Triggers>
+		</Style>
+
+		<Style TargetType="ListBoxItem">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBoxItem}">
+						<Border x:Name="border" BorderBrush="Transparent" BorderThickness="5" Margin="0,10,10,10">
+							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+											  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+											  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsSelected" Value="true">
+								<Setter Property="BorderBrush" TargetName="border" Value="Yellow"/>
+								<Setter Property="BorderThickness" TargetName="border" Value="5"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
 		</Style>
 
 	</Window.Resources>
@@ -58,15 +78,15 @@
 
 			<Label Grid.Column="0" Grid.Row="1" Height="25" Margin="2,5,2,5" Content="Dashboard Url"/>
 			<DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
-				<Image DockPanel.Dock="Right" Source="check.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" Height="25" Width="25" Margin="10,0,0,0" />
-				<Image DockPanel.Dock="Right" Source="stop.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}}" Height="25" Width="25" Margin="10,0,0,0" />
-
 				<TextBlock DockPanel.Dock="Right"  FontStyle="Italic" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center">
 					<Hyperlink Click="Validate_Click">check url</Hyperlink>
 				</TextBlock>
-
+				<Image DockPanel.Dock="Right" Source="check.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" Height="25" Width="25" Margin="10,0,0,0" />
+				<Image DockPanel.Dock="Right" Source="stop.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}}" Height="25" Width="25" Margin="10,0,0,0" />
 				<TextBox Name="UrlTextBox" Style="{StaticResource TextBoxWithValidation}" Height="25" Width="350">
-					<Binding Path="Dashboard" UpdateSourceTrigger="LostFocus" Mode="TwoWay" Source="{x:Static BigVisibleCruise_Properties:Settings.Default}" Converter="{StaticResource CruiseDashboardToStatusUrlConverter}">
+					<Binding Path="Dashboard" UpdateSourceTrigger="Explicit" Mode="TwoWay"
+							 Source="{x:Static BigVisibleCruise_Properties:Settings.Default}"
+							 Converter="{StaticResource CruiseDashboardToStatusUrlConverter}">
 						<Binding.ValidationRules>
 							<BigVisibleCruise_Validations:DashboardUrlValidationRule />
 						</Binding.ValidationRules>
@@ -80,25 +100,21 @@
 					Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
 					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
 
-			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5" Content="Skin"/>
-			<ComboBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" SelectedValuePath="Tag">
-				<ComboBoxItem Tag="LiveStackedStatus" Content="Stacked">
-					<ComboBoxItem.ToolTip>
-						<Image Source="stacked.png" />
-					</ComboBoxItem.ToolTip>		
-				</ComboBoxItem>
-				<ComboBoxItem Tag="LiveUniformStatus" Content="Uniform Grid">
-					<ComboBoxItem.ToolTip>
-						<Image Source="grid.png" />
-					</ComboBoxItem.ToolTip>
-				</ComboBoxItem>
-			</ComboBox>
+			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5" Content="Visual Appearance"/>
+			<ListBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" BorderThickness="0"  SelectedValuePath="Tag">
+				<ListBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Orientation="Horizontal"/>
+					</ItemsPanelTemplate>
+				</ListBox.ItemsPanel>
+				<ListBoxItem Tag="LiveStackedStatus">
+					<Image Width="50" Source="StackedIcon.png" />
+				</ListBoxItem>
+				<ListBoxItem Tag="LiveUniformStatus">
+					<Image Width="50" Source="GridIcon.png" />
+				</ListBoxItem>
+			</ListBox>
 
-			<DockPanel HorizontalAlignment="Right" Margin="0,10,0,0" Width="Auto" LastChildFill="False" Grid.Column="1" Grid.Row="5" VerticalAlignment="Stretch" Grid.ColumnSpan="1">
-				<TextBlock DockPanel.Dock="Right"  Padding="10,1,10,1" Margin="2,5,10,5" FontStyle="Italic" HorizontalAlignment="Right">
-					<Hyperlink Click="Close_Click">Close</Hyperlink>
-				</TextBlock>
-			</DockPanel>
 
 		</Grid>
 
