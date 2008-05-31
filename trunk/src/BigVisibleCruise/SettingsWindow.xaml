@@ -7,9 +7,11 @@
     xmlns:BigVisibleCruise_Properties="clr-namespace:BigVisibleCruise.Properties"
     xmlns:BigVisibleCruise_Validations="clr-namespace:BigVisibleCruise.Validations"
     x:Class="BigVisibleCruise.SettingsWindow"
-    Title="Settings" SizeToContent="WidthAndHeight" ShowInTaskbar="False"
-    Icon="Cinema-Display-graphite.ico" ResizeMode="NoResize"
-    >
+    Title="Settings" 
+	SizeToContent="WidthAndHeight" 
+	ShowInTaskbar="False"
+    Icon="Cinema-Display-graphite.ico" 
+	ResizeMode="NoResize">
 
 	<Window.Resources>
 		   
@@ -18,6 +20,36 @@
 		<Converters:CruiseDashboardToStatusUrlConverter x:Key="CruiseDashboardToStatusUrlConverter" />
 		<Converters:BooleanToVisibleConverter x:Key="BooleanToVisibleConverter" />
 
+		<Style x:Key="HeadingLabel" TargetType="{x:Type Label}">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="Background" Value="Black" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="FontFamily" Value="Segoe Script, Verdana" />
+			<Setter Property="Height" Value="Auto" />
+			<Setter Property="HorizontalAlignment" Value="Stretch" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="Padding" Value="10,10,10,10" />
+		</Style>
+
+		
+		<Style x:Key="HumaneTextLabel" TargetType="{x:Type Label}">
+			<Setter Property="Foreground" Value="Gray" />
+		</Style>
+		
+		<Style x:Key="TextBlockWithLinks" TargetType="{x:Type TextBlock}">
+			<Setter Property="FontStyle" Value="Italic" />
+			<Setter Property="HorizontalAlignment" Value="Right" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+		
+		<Style x:Key="FeedbackIcon" TargetType="{x:Type Image}">
+			<Setter Property="Height" Value="25" />
+			<Setter Property="Width" Value="25" />
+			<Setter Property="Margin" Value="10,0,0,0" />
+		</Style>
+		
+		
 		<Style x:Key="TextBoxWithValidation" TargetType="{x:Type TextBox}">
 			<Setter Property="Validation.ErrorTemplate">
 				<Setter.Value>
@@ -37,29 +69,27 @@
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type ListBoxItem}">
-						<Border x:Name="border" BorderBrush="Transparent" BorderThickness="5" Margin="0,10,10,10">
+						<Border x:Name="Border" BorderBrush="Transparent" BorderThickness="5" Margin="0,10,10,10">
 							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
 											  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 											  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 						</Border>
 						<ControlTemplate.Triggers>
 							<Trigger Property="IsSelected" Value="true">
-								<Setter Property="BorderBrush" TargetName="border" Value="Yellow"/>
-								<Setter Property="BorderThickness" TargetName="border" Value="5"/>
+								<Setter Property="BorderBrush" TargetName="Border" Value="Yellow"/>
+								<Setter Property="BorderThickness" TargetName="Border" Value="5"/>
 							</Trigger>
 						</ControlTemplate.Triggers>
 					</ControlTemplate>
 				</Setter.Value>
 			</Setter>
 		</Style>
-
+		
 	</Window.Resources>
 
 
 	<Border Padding="10">
-
 		<Grid>
-
 			<Grid.RowDefinitions>
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
@@ -74,50 +104,86 @@
 				<ColumnDefinition Width="350"/>
 			</Grid.ColumnDefinitions>
 
-			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="16" Height="Auto" HorizontalAlignment="Stretch" Foreground="White" Background="Black"   FontWeight="Bold"  Padding="10,10,10,10" FontFamily="Segoe Script, Verdana" VerticalAlignment="Center" Content="Big Visible Cruise Settings"/>
-
-			<Label Grid.Column="0" Grid.Row="1" Height="25" Margin="2,5,2,5" Content="Dashboard Url"/>
-			<DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
-				<TextBlock DockPanel.Dock="Right"  FontStyle="Italic" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+				   Style="{StaticResource HeadingLabel}"
+				   Content="Big Visible Cruise Settings"/>
+			
+			<Label Grid.Column="0" Grid.Row="1" Margin="2,5,2,5" 
+				   Content="Dashboard Url"/>
+			
+			<DockPanel Grid.Column="1" Grid.Row="1" 
+					   LastChildFill="True">
+			
+				<TextBlock DockPanel.Dock="Right" Margin="10,0,0,0"
+						   Style="{StaticResource TextBlockWithLinks}" >
+					
 					<Hyperlink Click="Validate_Click">check url</Hyperlink>
+					
 				</TextBlock>
-				<Image DockPanel.Dock="Right" Source="check.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" Height="25" Width="25" Margin="10,0,0,0" />
-				<Image DockPanel.Dock="Right" Source="stop.png" Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}}" Height="25" Width="25" Margin="10,0,0,0" />
-				<TextBox Name="UrlTextBox" Style="{StaticResource TextBoxWithValidation}" Height="25" Width="350">
-					<Binding Path="Dashboard" UpdateSourceTrigger="Explicit" Mode="TwoWay"
+
+				<Image DockPanel.Dock="Right"
+					   Style="{StaticResource FeedbackIcon}"
+					   Source="check.png" 
+					   Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" />
+				
+				<Image DockPanel.Dock="Right" 
+					   Style="{StaticResource FeedbackIcon}" 
+					   Source="stop.png" 
+					   Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}}" />
+				
+				<TextBox Name="UrlTextBox" Margin="10,0,0,0" Height="25"
+						 Style="{StaticResource TextBoxWithValidation}" >
+					
+					<Binding Path="Dashboard" 
+							 UpdateSourceTrigger="Explicit" 
+							 Mode="TwoWay"
 							 Source="{x:Static BigVisibleCruise_Properties:Settings.Default}"
 							 Converter="{StaticResource CruiseDashboardToStatusUrlConverter}">
+					
 						<Binding.ValidationRules>
 							<BigVisibleCruise_Validations:DashboardUrlValidationRule />
 						</Binding.ValidationRules>
+						
 					</Binding>
+					
 				</TextBox>
+				
 			</DockPanel>
 
-			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5" VerticalAlignment="Top" Content="Auto Refresh Rate"/>
-			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" Foreground="Gray" Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
-			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5" AutoToolTipPlacement="None"
-					Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
+			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5" 
+				   Content="Auto Refresh Rate"/>
+			
+			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" 
+				   Style="{StaticResource HumaneTextLabel}"  
+				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
+			
+			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5"
+					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
 					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
 
-			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5" Content="Visual Appearance"/>
-			<ListBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5" SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" BorderThickness="0"  SelectedValuePath="Tag">
+			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5" 
+				   Content="Visual Appearance"/>
+			
+			<ListBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5" 
+					 BorderThickness="0"
+					 SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" 
+					 SelectedValuePath="Tag">
+				
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
 						<StackPanel Orientation="Horizontal"/>
 					</ItemsPanelTemplate>
 				</ListBox.ItemsPanel>
+				
 				<ListBoxItem Tag="LiveStackedStatus">
-					<Image Width="50" Source="StackedIcon.png" />
+					<Image Source="StackedIcon.png" />
 				</ListBoxItem>
+				
 				<ListBoxItem Tag="LiveUniformStatus">
-					<Image Width="50" Source="GridIcon.png" />
+					<Image Source="GridIcon.png" />
 				</ListBoxItem>
+				
 			</ListBox>
-
-
 		</Grid>
-
 	</Border>
-
 </Window>
