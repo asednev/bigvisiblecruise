@@ -1,9 +1,8 @@
 
 Here are the things that need done before 1.0 ...
 
-+ Valid/Invalid indicator need to go away on text-changed of the url box
-+ Implement / clean up the styles
++ Create the hand-drawn skin vectors and integrate into a visualization
++ Chrome polish
 + Check test coverage
 + Figure out how to let others know that this thing exists
-+ Create the hand-drawn skin vectors
 + Put some more information out on the wiki around usage / design thoughts
