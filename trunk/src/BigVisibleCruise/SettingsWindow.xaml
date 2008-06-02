@@ -46,7 +46,6 @@
 		<Style x:Key="FeedbackIcon" TargetType="{x:Type Image}">
 			<Setter Property="Height" Value="25" />
 			<Setter Property="Width" Value="25" />
-			<Setter Property="Margin" Value="10,0,0,0" />
 		</Style>
 		
 		
@@ -114,25 +113,31 @@
 			<DockPanel Grid.Column="1" Grid.Row="1" 
 					   LastChildFill="True">
 			
-				<TextBlock DockPanel.Dock="Right" Margin="10,0,0,0"
-						   Style="{StaticResource TextBlockWithLinks}" >
-					
+				<TextBlock Name="ValidateUrlTextBlock" 
+						   DockPanel.Dock="Right" Margin="2,5,2,5"
+						   Style="{StaticResource TextBlockWithLinks}"
+						   Visibility="Collapsed">
 					<Hyperlink Click="Validate_Click">check url</Hyperlink>
-					
 				</TextBlock>
 
-				<Image DockPanel.Dock="Right"
+				<Image Name="CheckImage"
+					   DockPanel.Dock="Right"
+					   Margin="2,5,2,5"
 					   Style="{StaticResource FeedbackIcon}"
 					   Source="check.png" 
-					   Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}, ConverterParameter=false}" />
+					   Visibility="Collapsed" />
+
+				<Image Name="StopImage"
+					   DockPanel.Dock="Right"
+					   Margin="2,5,2,5"
+					   Style="{StaticResource FeedbackIcon}"
+					   Source="stop.png"
+					   Visibility="Collapsed"
+					   ToolTip="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}"/>
 				
-				<Image DockPanel.Dock="Right" 
-					   Style="{StaticResource FeedbackIcon}" 
-					   Source="stop.png" 
-					   Visibility="{Binding Path=(Validation.HasError), ElementName=UrlTextBox, Converter={StaticResource BooleanToVisibleConverter}}" />
-				
-				<TextBox Name="UrlTextBox" Margin="10,0,0,0" Height="25"
-						 Style="{StaticResource TextBoxWithValidation}" >
+				<TextBox Name="UrlTextBox" Margin="2,5,2,5" Height="25"
+						 Style="{StaticResource TextBoxWithValidation}"
+						 TextChanged="UrlTextboxChanged">
 					
 					<Binding Path="Dashboard" 
 							 UpdateSourceTrigger="Explicit" 
@@ -150,40 +155,41 @@
 				
 			</DockPanel>
 
-			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5" 
-				   Content="Auto Refresh Rate"/>
-			
-			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" 
-				   Style="{StaticResource HumaneTextLabel}"  
-				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
-			
-			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5"
-					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
-					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
-
-			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5" 
+			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5"
 				   Content="Visual Appearance"/>
-			
-			<ListBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5" 
+
+			<ListBox Grid.Column="1" Grid.Row="2" Margin="2,5,2,5"
 					 BorderThickness="0"
-					 SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}" 
+					 SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}"
 					 SelectedValuePath="Tag">
-				
+
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
 						<StackPanel Orientation="Horizontal"/>
 					</ItemsPanelTemplate>
 				</ListBox.ItemsPanel>
-				
+
 				<ListBoxItem Tag="LiveStackedStatus">
 					<Image Source="StackedIcon.png" />
 				</ListBoxItem>
-				
+
 				<ListBoxItem Tag="LiveUniformStatus">
 					<Image Source="GridIcon.png" />
 				</ListBoxItem>
-				
-			</ListBox>
+
+			</ListBox>			
+			
+			<Label Grid.Column="0" Grid.Row="3" Height="25" Margin="2,5,2,5" 
+				   Content="Auto Refresh Rate"/>
+			
+			<Label Grid.Column="1" Grid.Row="3" Height="25" Margin="2,5,2,5" 
+				   Style="{StaticResource HumaneTextLabel}"  
+				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
+			
+			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
+					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
+					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
+
 		</Grid>
 	</Border>
 </Window>
