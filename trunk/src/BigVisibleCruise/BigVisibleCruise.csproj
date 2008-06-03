@@ -57,8 +57,8 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.IdentityModel" />
-    <Resource Include="check.png" />
-    <Resource Include="stop.png" />
+    <Resource Include="Images\Check.png" />
+    <Resource Include="Images\Stop.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -124,8 +124,8 @@
     <Resource Include="Cinema-Display-graphite.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GridIcon.png" />
-    <Resource Include="StackedIcon.png" />
+    <Resource Include="Images\GridIcon.png" />
+    <Resource Include="Images\StackedIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" />

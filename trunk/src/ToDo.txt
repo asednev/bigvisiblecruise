@@ -1,7 +1,10 @@
 
 Here are the things that need done before 1.0 ...
 
-+ Create the hand-drawn skin vectors and integrate into a visualization
++ New Font
++ Additional Visualizations
++ VS 2008 Conversion
++ C# 3.5 Conversion
 + Chrome polish
 + Check test coverage
 + Figure out how to let others know that this thing exists
