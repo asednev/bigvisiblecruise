@@ -64,6 +64,10 @@
 			</Style.Triggers>
 		</Style>
 
+		<!--<Style TargetType="ToolTip">
+			<Setter Property="" Value="" />
+		</Style>-->
+
 		<Style TargetType="ListBoxItem">
 			<Setter Property="Template">
 				<Setter.Value>
@@ -124,16 +128,16 @@
 					   DockPanel.Dock="Right"
 					   Margin="2,5,2,5"
 					   Style="{StaticResource FeedbackIcon}"
-					   Source="check.png" 
+					   Source="Images/Check.png" 
 					   Visibility="Collapsed" />
 
 				<Image Name="StopImage"
 					   DockPanel.Dock="Right"
 					   Margin="2,5,2,5"
 					   Style="{StaticResource FeedbackIcon}"
-					   Source="stop.png"
+					   Source="Images/Stop.png"
 					   Visibility="Collapsed"
-					   ToolTip="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}"/>
+					   ToolTip="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}" />
 				
 				<TextBox Name="UrlTextBox" Margin="2,5,2,5" Height="25"
 						 Style="{StaticResource TextBoxWithValidation}"
@@ -170,11 +174,11 @@
 				</ListBox.ItemsPanel>
 
 				<ListBoxItem Tag="LiveStackedStatus">
-					<Image Source="StackedIcon.png" />
+					<Image Source="Images/StackedIcon.png" />
 				</ListBoxItem>
 
 				<ListBoxItem Tag="LiveUniformStatus">
-					<Image Source="GridIcon.png" />
+					<Image Source="Images/GridIcon.png" />
 				</ListBoxItem>
 
 			</ListBox>			
