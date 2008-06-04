@@ -158,11 +158,22 @@
 				</TextBox>
 				
 			</DockPanel>
+			
+			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5" 
+				   Content="Check Status"/>
+			
+			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" 
+				   Style="{StaticResource HumaneTextLabel}"  
+				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
+			
+			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5"
+					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
+					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
 
-			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5"
-				   Content="Visual Appearance"/>
-
-			<ListBox Grid.Column="1" Grid.Row="2" Margin="2,5,2,5"
+			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5"
+				   Content="Visual Appearance"/>			
+			
+			<ListBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
 					 BorderThickness="0"
 					 SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}"
 					 SelectedValuePath="Tag">
@@ -181,18 +192,8 @@
 					<Image Source="Images/GridIcon.png" />
 				</ListBoxItem>
 
-			</ListBox>			
-			
-			<Label Grid.Column="0" Grid.Row="3" Height="25" Margin="2,5,2,5" 
-				   Content="Auto Refresh Rate"/>
-			
-			<Label Grid.Column="1" Grid.Row="3" Height="25" Margin="2,5,2,5" 
-				   Style="{StaticResource HumaneTextLabel}"  
-				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
-			
-			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
-					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
-					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
+			</ListBox>
+
 
 		</Grid>
 	</Border>
