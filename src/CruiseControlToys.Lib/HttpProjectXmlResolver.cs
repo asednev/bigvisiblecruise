@@ -63,7 +63,8 @@ namespace CruiseControlToys.Lib
                 string activity = project.SelectSingleNode("./@activity").Value;
                 string lastBuildStatus = project.SelectSingleNode("./@lastBuildStatus").Value;
                 string currentBuildStatus = (activity == "Building") ? "Building" : lastBuildStatus;
-                list.Add(new ProjectStatus(name, currentBuildStatus));
+                DateTime lastBuildTime = DateTime.Parse(project.SelectSingleNode("./@lastBuildTime").Value);
+                list.Add(new ProjectStatus(name, currentBuildStatus, lastBuildTime));
             }
 
             return list; 

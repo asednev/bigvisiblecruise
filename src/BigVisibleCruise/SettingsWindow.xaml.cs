@@ -37,6 +37,10 @@ namespace BigVisibleCruise
             CheckImage.Visibility = Visibility.Collapsed;
         }
 
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         private void Validate_Click(object sender, RoutedEventArgs e)
         {

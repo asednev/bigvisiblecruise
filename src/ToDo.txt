@@ -1,11 +1,9 @@
 
 Here are the things that need done before 1.0 ...
 
-+ New Font
 + Additional Visualizations
 + VS 2008 Conversion
 + C# 3.5 Conversion
-+ Chrome polish
 + Check test coverage
 + Figure out how to let others know that this thing exists
 + Put some more information out on the wiki around usage / design thoughts
