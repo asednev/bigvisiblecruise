@@ -31,9 +31,8 @@
 			<Setter Property="VerticalAlignment" Value="Center" />
 			<Setter Property="Padding" Value="10,10,10,10" />
 		</Style>
-
 		
-		<Style x:Key="HumaneTextLabel" TargetType="{x:Type Label}">
+		<Style TargetType="{x:Type Label}">
 			<Setter Property="Foreground" Value="Gray" />
 		</Style>
 		
@@ -107,7 +106,7 @@
 				<ColumnDefinition Width="350"/>
 			</Grid.ColumnDefinitions>
 
-			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="2,5,2,5"
 				   Style="{StaticResource HeadingLabel}"
 				   Content="Big Visible Cruise Settings"/>
 			
@@ -163,7 +162,6 @@
 				   Content="Check Status"/>
 			
 			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" 
-				   Style="{StaticResource HumaneTextLabel}"  
 				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
 			
 			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5"
@@ -193,8 +191,7 @@
 				</ListBoxItem>
 
 			</ListBox>
-
-
+			
 		</Grid>
 	</Border>
 </Window>

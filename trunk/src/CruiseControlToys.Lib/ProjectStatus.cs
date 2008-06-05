@@ -10,6 +10,7 @@ namespace CruiseControlToys.Lib
         private string _currentBuildStatus;
         private string _name;
         private DateTime _measuredAt;
+        private DateTime _lastBuildTime;
 
         public string CurrentBuildStatus
         {
@@ -47,11 +48,18 @@ namespace CruiseControlToys.Lib
             }
         }
 
-        public ProjectStatus(string projectName, string currentBuildStatus) 
+        public DateTime LastBuildTime
+        {
+            get { return _lastBuildTime; }
+            set { _lastBuildTime = value; }
+        }
+
+        public ProjectStatus(string projectName, string currentBuildStatus, DateTime lastBuildTime) 
         {
             this.Name = projectName;
             this.CurrentBuildStatus = currentBuildStatus;
             this.MeasuredAt = DateTime.Now;
+            this.LastBuildTime = lastBuildTime;
         }
 
     }
