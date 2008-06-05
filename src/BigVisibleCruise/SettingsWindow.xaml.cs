@@ -33,8 +33,8 @@ namespace BigVisibleCruise
         private void UrlTextboxChanged(object sender, TextChangedEventArgs args)
         {
             ValidateUrlTextBlock.Visibility = Visibility.Visible;
-            StopImage.Visibility = Visibility.Collapsed;
-            CheckImage.Visibility = Visibility.Collapsed;
+            DashboardUrlError.Visibility = Visibility.Collapsed;
+            DashboardUrlConfirmation.Visibility = Visibility.Collapsed;
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -50,11 +50,11 @@ namespace BigVisibleCruise
 
             if (Validation.GetErrors(UrlTextBox).Count > 0)
             {
-                StopImage.Visibility = Visibility.Visible;
+                DashboardUrlError.Visibility = Visibility.Visible;
             }
             else
             {
-                CheckImage.Visibility = Visibility.Visible;
+                DashboardUrlConfirmation.Visibility = Visibility.Visible;
             }
         }
     }
