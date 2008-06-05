@@ -35,8 +35,13 @@
 		<Style TargetType="{x:Type Label}">
 			<Setter Property="Foreground" Value="Gray" />
 		</Style>
-		
-		<Style x:Key="TextBlockWithLinks" TargetType="{x:Type TextBlock}">
+
+        <Style x:Key="Error" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style x:Key="TextBlockWithLinks" TargetType="{x:Type TextBlock}">
 			<Setter Property="FontStyle" Value="Italic" />
 			<Setter Property="HorizontalAlignment" Value="Right" />
 			<Setter Property="VerticalAlignment" Value="Center" />
@@ -95,6 +100,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
@@ -106,72 +112,73 @@
 				<ColumnDefinition Width="350"/>
 			</Grid.ColumnDefinitions>
 
-			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="2,5,2,5"
+			<!--<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="2,10"
 				   Style="{StaticResource HeadingLabel}"
-				   Content="Big Visible Cruise Settings"/>
-			
-			<Label Grid.Column="0" Grid.Row="1" Margin="2,5,2,5" 
+				   Content="Big Visible Cruise Settings" Padding="2" />-->
+
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+
+                <Label Name="DashboardUrlConfirmation" Content="The dasbhoard url is valid" />
+                <Label Name="DashboardUrlError" Style="{StaticResource Error}" Content="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}" />
+
+                <!--<Image Name="CheckImage"
+				   Margin="2,5,2,5"
+				   Style="{StaticResource FeedbackIcon}"
+				   Source="Images/Check.png" 
+				   Visibility="Collapsed" />
+
+                <Image Name="StopImage"
+				   Margin="2,5,2,5"
+				   Style="{StaticResource FeedbackIcon}"
+				   Source="Images/Stop.png"
+				   Visibility="Collapsed"
+				   ToolTip="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}" />-->
+
+                <TextBlock Grid.Column="1" Grid.Row="1"
+                           Name="ValidateUrlTextBlock" 
+				           DockPanel.Dock="Right" Margin="2,5,2,5"
+				           Style="{StaticResource TextBlockWithLinks}"
+				           Visibility="Collapsed">
+			        <Hyperlink Click="Validate_Click">check the dashboard url</Hyperlink>
+		        </TextBlock>
+                
+            </StackPanel>
+
+            <Label Grid.Column="0" Grid.Row="1" Margin="2,5,2,5" 
 				   Content="Dashboard Url"/>
-			
-			<DockPanel Grid.Column="1" Grid.Row="1" 
-					   LastChildFill="True">
-			
-				<TextBlock Name="ValidateUrlTextBlock" 
-						   DockPanel.Dock="Right" Margin="2,5,2,5"
-						   Style="{StaticResource TextBlockWithLinks}"
-						   Visibility="Collapsed">
-					<Hyperlink Click="Validate_Click">check url</Hyperlink>
-				</TextBlock>
 
-				<Image Name="CheckImage"
-					   DockPanel.Dock="Right"
-					   Margin="2,5,2,5"
-					   Style="{StaticResource FeedbackIcon}"
-					   Source="Images/Check.png" 
-					   Visibility="Collapsed" />
-
-				<Image Name="StopImage"
-					   DockPanel.Dock="Right"
-					   Margin="2,5,2,5"
-					   Style="{StaticResource FeedbackIcon}"
-					   Source="Images/Stop.png"
-					   Visibility="Collapsed"
-					   ToolTip="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}" />
-				
-				<TextBox Name="UrlTextBox" Margin="2,5,2,5" Height="25"
+            <TextBox Grid.Column="1" Grid.Row="1" Name="UrlTextBox" Margin="2,5,2,5" Height="25"
 						 Style="{StaticResource TextBoxWithValidation}"
 						 TextChanged="UrlTextboxChanged">
-					
-					<Binding Path="Dashboard" 
+
+                <Binding Path="Dashboard" 
 							 UpdateSourceTrigger="Explicit" 
 							 Mode="TwoWay"
 							 Source="{x:Static BigVisibleCruise_Properties:Settings.Default}"
 							 Converter="{StaticResource CruiseDashboardToStatusUrlConverter}">
-					
-						<Binding.ValidationRules>
-							<BigVisibleCruise_Validations:DashboardUrlValidationRule />
-						</Binding.ValidationRules>
-						
-					</Binding>
-					
-				</TextBox>
-				
-			</DockPanel>
+
+                    <Binding.ValidationRules>
+                        <BigVisibleCruise_Validations:DashboardUrlValidationRule />
+                    </Binding.ValidationRules>
+
+                </Binding>
+
+            </TextBox>                
 			
-			<Label Grid.Column="0" Grid.Row="2" Height="25" Margin="2,5,2,5" 
+			<Label Grid.Column="0" Grid.Row="3" Height="25" Margin="2,5,2,5" 
 				   Content="Check Status"/>
 			
-			<Label Grid.Column="1" Grid.Row="2" Height="25" Margin="2,5,2,5" 
+			<Label Grid.Column="1" Grid.Row="3" Height="25" Margin="2,5,2,5" 
 				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
 			
-			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="3" Margin="2,5,2,5"
+			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
 					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
 					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
 
-			<Label Grid.Column="0" Grid.Row="4" Height="25" Margin="2,5,2,5"
+			<Label Grid.Column="0" Grid.Row="5" Height="25" Margin="2,5,2,5"
 				   Content="Visual Appearance"/>			
 			
-			<ListBox Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
+			<ListBox Grid.Column="1" Grid.Row="5" Margin="2,5,2,5"
 					 BorderThickness="0"
 					 SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}"
 					 SelectedValuePath="Tag">

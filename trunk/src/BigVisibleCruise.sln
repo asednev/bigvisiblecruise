@@ -1,14 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CruiseControlToys.Lib", "CruiseControlToys.Lib\CruiseControlToys.Lib.csproj", "{F94C94DC-F5CB-4658-B25C-639A3F3E2819}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CruiseControlToys.Lib.Tests", "CruiseControlToys.Lib.Tests\CruiseControlToys.Lib.Tests.csproj", "{F0623D58-6C4C-407A-9FD8-23D0AF663B56}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigVisibleCruise", "BigVisibleCruise\BigVisibleCruise.csproj", "{4CC715FF-1B56-46BA-AD68-ECB5E1B5CDDA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigVisibleCruise.Tests", "BigVisibleCruise.Tests\BigVisibleCruise.Tests.csproj", "{06C5E10D-303D-4C61-806A-C8F190B68027}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D4254DB-90E6-4315-8A1D-0D99E08721DC}"
 	ProjectSection(SolutionItems) = preProject
 		License.txt = License.txt
@@ -17,6 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SolutionInfo.cs = SolutionInfo.cs
 		ToDo.txt = ToDo.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CruiseControlToys.Lib", "CruiseControlToys.Lib\CruiseControlToys.Lib.csproj", "{F94C94DC-F5CB-4658-B25C-639A3F3E2819}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CruiseControlToys.Lib.Tests", "CruiseControlToys.Lib.Tests\CruiseControlToys.Lib.Tests.csproj", "{F0623D58-6C4C-407A-9FD8-23D0AF663B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigVisibleCruise", "BigVisibleCruise\BigVisibleCruise.csproj", "{4CC715FF-1B56-46BA-AD68-ECB5E1B5CDDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigVisibleCruise.Tests", "BigVisibleCruise.Tests\BigVisibleCruise.Tests.csproj", "{06C5E10D-303D-4C61-806A-C8F190B68027}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
