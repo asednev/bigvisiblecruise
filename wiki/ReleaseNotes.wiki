@@ -1,5 +1,13 @@
 #summary Information on different releases of BVC.
 
+==1.0==
+
+ * Upgraded source to VS 2008
+
+ * Now requires v3.5 of the .Net Framework
+
+ * Usability enhancements to the settings
+
 ==0.7 ==
 
  * Lots of minor coding tweaks and reshuffling.
