@@ -37,17 +37,13 @@ namespace CruiseControlToys.Lib
         }
 
         public static HttpProjectXmlResolver FromUri(Uri location) 
-        {            
-            HttpProjectXmlResolver httpProjectXmlResolver = new HttpProjectXmlResolver();
-            httpProjectXmlResolver.Uri = location;
-            return httpProjectXmlResolver;
+        {
+            return new HttpProjectXmlResolver() { Uri = location };
         }
 
         public static HttpProjectXmlResolver FromProjectStatusDocument(XmlDocument projectStatusDocument)
         {
-            HttpProjectXmlResolver httpProjectXmlResolver = new HttpProjectXmlResolver();
-            httpProjectXmlResolver.ProjectStatusDocument = projectStatusDocument;
-            return httpProjectXmlResolver;
+            return new HttpProjectXmlResolver() { ProjectStatusDocument = projectStatusDocument };
         }
 
         public IList<ProjectStatus> GetProjects() 

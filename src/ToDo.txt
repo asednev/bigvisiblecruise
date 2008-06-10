@@ -2,8 +2,8 @@
 Here are the things that need done before 1.0 ...
 
 + Additional Visualizations
-+ VS 2008 Conversion
-+ C# 3.5 Conversion
++ Fix tab order of links in the settings.
++ Use 3.5 features for C#
 + Check test coverage
 + Figure out how to let others know that this thing exists
 + Put some more information out on the wiki around usage / design thoughts

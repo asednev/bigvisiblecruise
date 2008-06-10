@@ -34,6 +34,20 @@ namespace BigVisibleCruise.Tests.Converters
             IValueConverter converter = new BooleanToVisibleConverter();
             Assert.That(converter.Convert(true, null, "false", null), Is.EqualTo(Visibility.Collapsed));
         }
+
+        [Test]
+        public void convertback_should_return_null_when_true()
+        {
+            IValueConverter converter = new BooleanToBooleanConverter();
+            Assert.That(converter.ConvertBack(true, null, null, null), Is.Null);
+        }
+
+        [Test]
+        public void convertback_should_return_null_when_false()
+        {
+            IValueConverter converter = new BooleanToBooleanConverter();
+            Assert.That(converter.ConvertBack(false, null, null, null), Is.Null);
+        }
     }
 
 }
