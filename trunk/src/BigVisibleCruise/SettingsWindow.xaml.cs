@@ -37,18 +37,16 @@ namespace BigVisibleCruise
             DashboardUrlConfirmation.Visibility = Visibility.Collapsed;
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {   
             this.Close();
         }
 
         private void Validate_Click(object sender, RoutedEventArgs e)
         {
-            UrlTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-
             ValidateUrlTextBlock.Visibility = Visibility.Collapsed;
 
-            if (Validation.GetErrors(UrlTextBox).Count > 0)
+            if (this.UrlIsValid)
             {
                 DashboardUrlError.Visibility = Visibility.Visible;
             }
@@ -57,5 +55,15 @@ namespace BigVisibleCruise
                 DashboardUrlConfirmation.Visibility = Visibility.Visible;
             }
         }
+
+        private bool UrlIsValid
+        {
+            get
+            {    
+                UrlTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+                return Validation.GetErrors(UrlTextBox).Count > 0;
+            }
+        }
+
     }
 }

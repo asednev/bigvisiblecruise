@@ -8,10 +8,14 @@
     xmlns:BigVisibleCruise_Validations="clr-namespace:BigVisibleCruise.Validations"
     x:Class="BigVisibleCruise.SettingsWindow"
     Title="Settings" 
-	SizeToContent="WidthAndHeight" 
-	ShowInTaskbar="False"
+    WindowStyle="None"
+    SizeToContent="WidthAndHeight" 
+    WindowStartupLocation="CenterOwner"
+    AllowsTransparency="True"
+    ShowInTaskbar="False" 
+    Topmost="True"
     Icon="Cinema-Display-graphite.ico" 
-	ResizeMode="NoResize">
+    ResizeMode="NoResize">
 
 	<Window.Resources>
 		   
@@ -20,7 +24,7 @@
 		<Converters:CruiseDashboardToStatusUrlConverter x:Key="CruiseDashboardToStatusUrlConverter" />
 		<Converters:BooleanToVisibleConverter x:Key="BooleanToVisibleConverter" />
 
-		<Style x:Key="HeadingLabel" TargetType="{x:Type Label}">
+        <Style x:Key="HeadingLabel" TargetType="{x:Type Label}">
 			<Setter Property="FontSize" Value="16" />
 			<Setter Property="Foreground" Value="White" />
 			<Setter Property="Background" Value="Black" />
@@ -31,7 +35,7 @@
 			<Setter Property="VerticalAlignment" Value="Center" />
 			<Setter Property="Padding" Value="10,10,10,10" />
 		</Style>
-		
+        
 		<Style TargetType="{x:Type Label}">
 			<Setter Property="Foreground" Value="Gray" />
 		</Style>
@@ -63,20 +67,20 @@
 			</Setter>
 			<Style.Triggers>
 				<Trigger Property="Validation.HasError" Value="true">
-					<Setter Property="Foreground" Value="Red" />
+					<Setter Property="Background" Value="Red" />
 				</Trigger>
 			</Style.Triggers>
 		</Style>
 
-		<!--<Style TargetType="ToolTip">
-			<Setter Property="" Value="" />
-		</Style>-->
-
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="70" />
+        </Style>
+        
 		<Style TargetType="ListBoxItem">
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type ListBoxItem}">
-						<Border x:Name="Border" BorderBrush="Transparent" BorderThickness="5" Margin="0,10,10,10">
+						<Border x:Name="Border" BorderBrush="Transparent" BorderThickness="5" Margin="2,10,10,0">
 							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
 											  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 											  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
@@ -95,7 +99,7 @@
 	</Window.Resources>
 
 
-	<Border Padding="10">
+    <Border Padding="10" BorderBrush="Black" BorderThickness="10">
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition></RowDefinition>
@@ -105,6 +109,7 @@
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
 
 			<Grid.ColumnDefinitions>
@@ -112,34 +117,21 @@
 				<ColumnDefinition Width="350"/>
 			</Grid.ColumnDefinitions>
 
-			<!--<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="2,10"
+			<Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,10"
 				   Style="{StaticResource HeadingLabel}"
-				   Content="Big Visible Cruise Settings" Padding="2" />-->
+				   Content="Big Visible Cruise Settings" Padding="5" />
 
             <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
 
-                <Label Name="DashboardUrlConfirmation" Content="The dasbhoard url is valid" />
+                <Label Name="DashboardUrlConfirmation" Content="The dasbhoard url is valid and will be saved." />
                 <Label Name="DashboardUrlError" Style="{StaticResource Error}" Content="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}" />
-
-                <!--<Image Name="CheckImage"
-				   Margin="2,5,2,5"
-				   Style="{StaticResource FeedbackIcon}"
-				   Source="Images/Check.png" 
-				   Visibility="Collapsed" />
-
-                <Image Name="StopImage"
-				   Margin="2,5,2,5"
-				   Style="{StaticResource FeedbackIcon}"
-				   Source="Images/Stop.png"
-				   Visibility="Collapsed"
-				   ToolTip="{Binding ElementName=UrlTextBox, Path=(Validation.Errors)[0].ErrorContent}" />-->
 
                 <TextBlock Grid.Column="1" Grid.Row="1"
                            Name="ValidateUrlTextBlock" 
 				           DockPanel.Dock="Right" Margin="2,5,2,5"
 				           Style="{StaticResource TextBlockWithLinks}"
 				           Visibility="Collapsed">
-			        <Hyperlink Click="Validate_Click">check the dashboard url</Hyperlink>
+			        <Hyperlink Click="Validate_Click">validate the dashboard url</Hyperlink>
 		        </TextBlock>
                 
             </StackPanel>
@@ -149,7 +141,7 @@
 
             <TextBox Grid.Column="1" Grid.Row="1" Name="UrlTextBox" Margin="2,5,2,5" Height="25"
 						 Style="{StaticResource TextBoxWithValidation}"
-						 TextChanged="UrlTextboxChanged">
+						 TextChanged="UrlTextboxChanged" TabIndex="0">
 
                 <Binding Path="Dashboard" 
 							 UpdateSourceTrigger="Explicit" 
@@ -173,7 +165,7 @@
 			
 			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
 					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
-					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" />
+					Value="{Binding Source={x:Static Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" TabIndex="1" />
 
 			<Label Grid.Column="0" Grid.Row="5" Height="25" Margin="2,5,2,5"
 				   Content="Visual Appearance"/>			
@@ -181,7 +173,7 @@
 			<ListBox Grid.Column="1" Grid.Row="5" Margin="2,5,2,5"
 					 BorderThickness="0"
 					 SelectedValue="{Binding Source={x:Static Properties:Settings.Default}, Path=Skin, Mode=TwoWay}"
-					 SelectedValuePath="Tag">
+					 SelectedValuePath="Tag" TabIndex="2">
 
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
@@ -198,7 +190,11 @@
 				</ListBoxItem>
 
 			</ListBox>
-			
+
+            <StackPanel HorizontalAlignment="Right"  Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6">
+                <Button Click="Save_Click" IsDefault="True" Margin="10,0,0,0" Content="Save" />
+            </StackPanel>
+            
 		</Grid>
 	</Border>
 </Window>
