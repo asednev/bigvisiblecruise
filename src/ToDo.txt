@@ -1,9 +1,6 @@
 
-Here are the things that need done before 1.0 ...
+Here are the things that need done before 2.0 ...
 
 + Additional Visualizations
 + Fix tab order of links in the settings.
-+ Use 3.5 features for C#
-+ Check test coverage
-+ Figure out how to let others know that this thing exists
-+ Put some more information out on the wiki around usage / design thoughts
++ Use 3.5 features for C# where it makes sense
