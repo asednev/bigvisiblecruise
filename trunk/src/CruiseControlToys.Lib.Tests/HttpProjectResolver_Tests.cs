@@ -116,6 +116,23 @@ namespace CruiseControlToys.Lib.Tests
             Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Building"));                        
         }
 
+        [Test]
+        public void validate_that_projectstatus_entity_is_fully_populated() 
+        {
+            string projectXml = @"  <Projects>
+                                        <Project name='FooProject' category='' activity='Building' lastBuildStatus='Failure' lastBuildLabel='292' lastBuildTime='2007-11-16T15:03:46.358374-05:00' nextBuildTime='2007-11-16T15:31:00.2683768-05:00' webUrl='http://foo/ccnet'/>
+                                    </Projects>";
+
+            XmlDocument statusDocument = new XmlDocument();
+            statusDocument.LoadXml(projectXml);
+
+            HttpProjectXmlResolver resolver = HttpProjectXmlResolver.FromProjectStatusDocument(statusDocument);
+            IList<ProjectStatus> statuses = resolver.GetProjects();
+
+            Assert.That(statuses[0].CurrentBuildStatus, Is.EqualTo("Building"));
+            Assert.That(statuses[0].LastBuildTime.Date, Is.EqualTo(new DateTime(2007,11,16).Date));
+            Assert.That(statuses[0].MeasuredAt.Date, Is.EqualTo(DateTime.Now.Date));
+        }
 
     }
 }
