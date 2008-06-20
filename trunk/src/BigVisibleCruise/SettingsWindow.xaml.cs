@@ -38,7 +38,8 @@ namespace BigVisibleCruise
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            UrlTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             this.Close();
         }
 
