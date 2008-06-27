@@ -96,7 +96,6 @@
     <Compile Include="Commands\FullscreenCommand.cs" />
     <Compile Include="Converters\CruiseDashboardToStatusUrlConverter.cs" />
     <Compile Include="Converters\SliderValueInSecondsToReadableTimeFormatConverter.cs" />
-    <Compile Include="Converters\LastBuildDateToDeviceIndependentUnitsConverter.cs" />
     <Compile Include="Converters\TimeSpanToDoubleConverter.cs" />
     <Compile Include="HumaneMessageWindow.xaml.cs">
       <DependentUpon>HumaneMessageWindow.xaml</DependentUpon>
@@ -133,10 +132,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Skins\LiveStackedStatus.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Skins\LiveStatusBase.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
