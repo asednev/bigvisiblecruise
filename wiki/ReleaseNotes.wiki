@@ -1,7 +1,7 @@
 #summary Information on different releases of BVC.
 
 
-==1.2== (in progress)
+==1.2 - in progress == 
 
 * Removed validation. It was busted anyway.
 
