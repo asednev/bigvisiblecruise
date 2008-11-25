@@ -3,7 +3,7 @@
 
 ==1.2 - in progress == 
 
-* Removed validation. It was busted anyway.
+ * Removed validation. It was busted anyway.
 
 ==1.1==
 
