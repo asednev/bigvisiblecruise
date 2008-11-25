@@ -22,7 +22,7 @@ namespace CruiseControlToys.Lib.Tests
         {
             Uri aWellKnownUri = new Uri("http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx");
             IResolver dashboarResolver = HttpProjectXmlResolver.FromUri(aWellKnownUri);
-            Assert.That(dashboarResolver.GetProjects().Count, Is.EqualTo(9));
+            Assert.That(dashboarResolver.GetProjects().Count, Is.EqualTo(6));
         }
 
         [Test]

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx</Value>
     </Setting>
     <Setting Name="Skin" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LiveUniformStatus</Value>
+      <Value Profile="(Default)">LiveStackedStatus</Value>
     </Setting>
     <Setting Name="PollFrequency" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:00:30</Value>

@@ -22,48 +22,14 @@ namespace BigVisibleCruise
     public partial class SettingsWindow : System.Windows.Window
     {
 
-
-        //TODO: Get all of this validation ish out of the codebehind
-
         public SettingsWindow()
         {
             InitializeComponent();
         }
 
-        private void UrlTextboxChanged(object sender, TextChangedEventArgs args)
-        {
-            ValidateUrlTextBlock.Visibility = Visibility.Visible;
-            DashboardUrlError.Visibility = Visibility.Collapsed;
-            DashboardUrlConfirmation.Visibility = Visibility.Collapsed;
-        }
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            UrlTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             this.Close();
-        }
-
-        private void Validate_Click(object sender, RoutedEventArgs e)
-        {
-            ValidateUrlTextBlock.Visibility = Visibility.Collapsed;
-
-            if (this.UrlIsValid)
-            {
-                DashboardUrlError.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                DashboardUrlConfirmation.Visibility = Visibility.Visible;
-            }
-        }
-
-        private bool UrlIsValid
-        {
-            get
-            {    
-                UrlTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-                return Validation.GetErrors(UrlTextBox).Count > 0;
-            }
         }
 
     }
