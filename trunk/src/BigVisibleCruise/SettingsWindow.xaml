@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Converters="clr-namespace:BigVisibleCruise.Converters;assembly="
     xmlns:BigVisibleCruise_Properties="clr-namespace:BigVisibleCruise.Properties"
-    xmlns:BigVisibleCruise_Validations="clr-namespace:BigVisibleCruise.Validations"
     x:Class="BigVisibleCruise.SettingsWindow"
     Title="Settings" 
     WindowStyle="None"
