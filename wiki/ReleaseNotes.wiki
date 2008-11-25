@@ -1,5 +1,9 @@
 #summary Information on different releases of BVC.
 
+==1.2== (in progress)
+
+* Removed validation. It was busted anyway.
+
 ==1.1==
 
  * Fixed issue with save not working as expected (http://code.google.com/p/bigvisiblecruise/issues/detail?id=21&can=1)
