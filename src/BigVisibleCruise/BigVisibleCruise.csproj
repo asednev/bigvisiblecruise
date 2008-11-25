@@ -110,7 +110,6 @@
       <SubType>Code</SubType>
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Validations\DashboardUrlValidationRule.cs" />
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
