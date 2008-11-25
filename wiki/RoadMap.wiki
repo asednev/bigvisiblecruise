@@ -8,7 +8,6 @@ The current roadmap looks something like this...
  
   * NAnt script
   * Windows installer
-  * 1.0 deployment
  
 ===Community-driven Requests===
 
