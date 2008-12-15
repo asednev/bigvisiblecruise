@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 using BigVisibleCruise.Properties;
 using CruiseControlToys.Lib;
+using System.Text.RegularExpressions;
 
 namespace BigVisibleCruise
 {
@@ -21,7 +22,7 @@ namespace BigVisibleCruise
 
         private void InitializeWindow()
         {
-            _dashboardResolver = new HttpProjectXmlResolver(new Uri(Settings.Default.Dashboard));
+            _dashboardResolver = new HttpProjectXmlResolver(new Uri(Settings.Default.Dashboard)) { ExplicitInclude = new Regex(Settings.Default.ExplicityIncludeProjectRegEx) };
 
             LoadSkin();
             SetDataContext();

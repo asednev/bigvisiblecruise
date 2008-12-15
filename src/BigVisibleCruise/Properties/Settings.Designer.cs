@@ -61,13 +61,13 @@ namespace BigVisibleCruise.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("*")]
-        public string IncludeProjectRegEx {
+        [global::System.Configuration.DefaultSettingValueAttribute(".*")]
+        public string ExplicityIncludeProjectRegEx {
             get {
-                return ((string)(this["IncludeProjectRegEx"]));
+                return ((string)(this["ExplicityIncludeProjectRegEx"]));
             }
             set {
-                this["IncludeProjectRegEx"] = value;
+                this["ExplicityIncludeProjectRegEx"] = value;
             }
         }
     }
