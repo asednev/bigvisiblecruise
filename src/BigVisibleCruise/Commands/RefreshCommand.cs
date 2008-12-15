@@ -1,32 +1,33 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
 namespace BigVisibleCruise.Commands
 {
-    public class RefreshCommand : ICommand
-    {
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+	public class RefreshCommand : ICommand
+	{
+		#region ICommand Members
 
-        public event EventHandler CanExecuteChanged;
+		public bool CanExecute(object parameter)
+		{
+			return true;
+		}
 
-        public void Execute(object parameter)
-        {
-            BigVisibleCruiseWindow targetWindow = parameter as BigVisibleCruiseWindow;
+		public event EventHandler CanExecuteChanged;
 
-            if (targetWindow == null)
-            {
-                //HACK: Couldn't figure out how to pass this in from XAML
-                targetWindow = Application.Current.MainWindow as BigVisibleCruiseWindow;
-            }
+		public void Execute(object parameter)
+		{
+			var targetWindow = parameter as BigVisibleCruiseWindow;
 
-            targetWindow.ReInitializeWindow();
+			if (targetWindow == null)
+			{
+				//HACK: Couldn't figure out how to pass this in from XAML
+				targetWindow = Application.Current.MainWindow as BigVisibleCruiseWindow;
+			}
 
-        }
-    }
+			targetWindow.ReInitializeWindow();
+		}
+
+		#endregion
+	}
 }

@@ -6,6 +6,6 @@ namespace CruiseControlToys.Lib
 {
     public interface IResolver
     {
-        IList<ProjectStatus> GetProjects();
+        IList<ProjectStatus> GetProjectStatusList();
     }
 }

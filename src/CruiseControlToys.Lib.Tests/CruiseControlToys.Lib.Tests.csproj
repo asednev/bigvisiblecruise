@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F0623D58-6C4C-407A-9FD8-23D0AF663B56}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -54,6 +54,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="CruiseAddress_Tests.cs" />
     <Compile Include="DashboardCommunicationException_Tests.cs" />
     <Compile Include="HttpProjectResolver_IntegrationTests.cs" />
     <Compile Include="HttpProjectResolver_Tests.cs" />

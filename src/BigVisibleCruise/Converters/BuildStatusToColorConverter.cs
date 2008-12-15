@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Globalization;
 
 namespace BigVisibleCruise.Converters
 {
@@ -8,7 +9,7 @@ namespace BigVisibleCruise.Converters
     public class BuildStatusToColorConverter : IValueConverter
     {
 
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             switch (value.ToString()) 
             {
@@ -24,7 +25,7 @@ namespace BigVisibleCruise.Converters
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return null;
         }
