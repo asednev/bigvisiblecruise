@@ -25,7 +25,7 @@
 			<Setter Property="Foreground" Value="White" />
 			<Setter Property="Background" Value="Black" />
 			<Setter Property="FontWeight" Value="Bold" />
-			<Setter Property="FontFamily" Value="Segoe Script, Verdana" />
+			<Setter Property="FontFamily" Value="Segoe, Verdana" />
 			<Setter Property="Height" Value="Auto" />
 			<Setter Property="HorizontalAlignment" Value="Stretch" />
 			<Setter Property="VerticalAlignment" Value="Center" />
