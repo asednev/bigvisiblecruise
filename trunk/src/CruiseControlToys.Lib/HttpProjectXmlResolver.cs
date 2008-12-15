@@ -1,95 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Net;
 using System.Xml;
-using System.Collections.Specialized;
 
 namespace CruiseControlToys.Lib
 {
-
     public class HttpProjectXmlResolver : IResolver
     {
-        private XmlDocument _projectStatusDocument;
-        private Uri _uri;
+        private readonly CruiseAddress _cruiseAddress = new CruiseAddress();
+        public XmlDocument ProjectStatusDocument { get; set; }
+        private IWebClient _webClient = new CruiseWebClient();
 
-        public XmlDocument ProjectStatusDocument
+        public IWebClient WebClient
         {
-            get
+            set { _webClient = value; }
+        }
+
+        public HttpProjectXmlResolver(Uri uri)
+        {
+            _cruiseAddress.Uri = uri;
+        }
+
+        public IList<ProjectStatus> GetProjectStatusList()
+        {
+            var xml = FetchProjectStatusXml();
+            return CreateProjectStatusListFromXml(xml);
+        }
+
+        private static IList<ProjectStatus> CreateProjectStatusListFromXml(XmlNode rootNode)
+        {
+            XmlNodeList projectNodeList = rootNode.SelectNodes("/Projects/Project");
+            IList<ProjectStatus> projectStatusList = new List<ProjectStatus>();
+
+            foreach (XmlNode projectNode in projectNodeList)
             {
-                return _projectStatusDocument;
-            }
-            set
-            {
-                _projectStatusDocument = value;
-            }
-        }
-
-        public Uri Uri
-        {
-            get { return _uri; }
-            set { _uri = value; }
-        }
-
-        private HttpProjectXmlResolver()
-        {
-
-        }
-
-        public static HttpProjectXmlResolver FromUri(Uri location) 
-        {
-            return new HttpProjectXmlResolver() { Uri = location };
-        }
-
-        public static HttpProjectXmlResolver FromProjectStatusDocument(XmlDocument projectStatusDocument)
-        {
-            return new HttpProjectXmlResolver() { ProjectStatusDocument = projectStatusDocument };
-        }
-
-        public IList<ProjectStatus> GetProjects() 
-        {
-            RefreshProjectStatusDocumentIfThereIsAnHttpUri();
-
-            XmlNodeList projectList = this.ProjectStatusDocument.SelectNodes("/Projects/Project");
-            IList<ProjectStatus> list = new List<ProjectStatus>();
-
-            foreach (XmlNode project in projectList)
-            {
-                string name = project.SelectSingleNode("./@name").Value;
-                string activity = project.SelectSingleNode("./@activity").Value;
-                string lastBuildStatus = project.SelectSingleNode("./@lastBuildStatus").Value;
+                string name = projectNode.SelectSingleNode("./@name").Value;
+                string activity = projectNode.SelectSingleNode("./@activity").Value;
+                string lastBuildStatus = projectNode.SelectSingleNode("./@lastBuildStatus").Value;
                 string currentBuildStatus = (activity == "Building") ? "Building" : lastBuildStatus;
-                DateTime lastBuildTime = DateTime.Parse(project.SelectSingleNode("./@lastBuildTime").Value);
-                list.Add(new ProjectStatus(name, currentBuildStatus, lastBuildTime));
+                DateTime lastBuildTime = DateTime.Parse(projectNode.SelectSingleNode("./@lastBuildTime").Value);
+                projectStatusList.Add(new ProjectStatus(name, currentBuildStatus, lastBuildTime));
             }
 
-            return list; 
+            return projectStatusList;
         }
 
-        private void RefreshProjectStatusDocumentIfThereIsAnHttpUri()
+        private XmlDocument FetchProjectStatusXml()
         {
-            if (this.Uri != null && this.Uri.Scheme.StartsWith("http"))
-            {
-                string content = GetRemoteContent();
-                XmlDocument statusDocument = new XmlDocument();
-                statusDocument.LoadXml(content);
-                this.ProjectStatusDocument = statusDocument;
-            }
+            if (!_cruiseAddress.IsValid) throw new DashboardCommunicationException(_cruiseAddress.Uri);
+            string content = GetRemoteContent();
+            var statusDocument = new XmlDocument();
+            statusDocument.LoadXml(content);
+            return statusDocument;
         }
 
         private string GetRemoteContent()
         {
             try
             {
-                WebClient cruiseClient = new WebClient();
-                return cruiseClient.DownloadString(this.Uri.ToString());
+                return _webClient.DownloadString(_cruiseAddress.Uri.ToString());
             }
             catch (WebException webException)
             {
-                throw new DashboardCommunicationException(this.Uri, webException);
+                throw new DashboardCommunicationException(_cruiseAddress.Uri, webException);
             }
         }
     }
-
-
 }

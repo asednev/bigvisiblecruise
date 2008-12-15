@@ -31,8 +31,13 @@
 			<Setter Property="VerticalAlignment" Value="Center" />
 			<Setter Property="Padding" Value="10,10,10,10" />
 		</Style>
-        
-		<Style TargetType="{x:Type Label}">
+
+        <Style x:Key="UrlTextStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="Tahoma, Verdana" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style TargetType="{x:Type Label}">
 			<Setter Property="Foreground" Value="Gray" />
 		</Style>
 
@@ -84,11 +89,9 @@
 				   Style="{StaticResource HeadingLabel}"
 				   Content="Big Visible Cruise Settings" Padding="5" />
 
-            <Label Grid.Column="0" Grid.Row="1" Margin="2,5,2,5" 
-				   Content="Dashboard Url"/>
+            <Label Grid.Column="0" Grid.Row="1" Margin="2,5,2,5" Content="Dashboard Url"/>
 
-            <TextBox Grid.Column="1" Grid.Row="1" Name="UrlTextBox" Margin="2,5,2,5" Height="25"
-						 TabIndex="0">
+            <TextBox Grid.Column="1" Grid.Row="1" Name="UrlTextBox" Margin="2,5,2,5" Height="25" TabIndex="0" Style="{StaticResource UrlTextStyle}" >
 
                 <Binding Path="Dashboard" 
 							 Mode="TwoWay"
@@ -105,8 +108,8 @@
 				   Content="{Binding ElementName=RefreshSlider, Path=Value, Converter={StaticResource SliderValueInSecondsToReadableTimeFormatConverter}}" />
 			
 			<Slider Name="RefreshSlider"  Grid.Column="1" Grid.Row="4" Margin="2,5,2,5"
-					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="30" LargeChange="60" 
-					Value="{Binding Source={x:Static BigVisibleCruise_Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" TabIndex="1" />
+					AutoToolTipPlacement="None"	Minimum="15" Maximum="600" SmallChange="5" LargeChange="30" 
+					Value="{Binding Source={x:Static BigVisibleCruise_Properties:Settings.Default}, Path=PollFrequency, Converter={StaticResource TimeSpanToDoubleConverter}, Mode=TwoWay}" TabIndex="1" OverridesDefaultStyle="False" />
 
 			<Label Grid.Column="0" Grid.Row="5" Height="25" Margin="2,5,2,5"
 				   Content="Visual Appearance"/>			
@@ -133,9 +136,9 @@
 			</ListBox>
 
             <StackPanel HorizontalAlignment="Right"  Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6">
-                <Button Click="Save_Click" IsDefault="True" Margin="10,0,0,0" Content="Save" />
+                <Button Click="Close_Click" IsDefault="True" Margin="10,0,0,0" Content="Close" />
             </StackPanel>
             
-		</Grid>
+        </Grid>
 	</Border>
 </Window>
