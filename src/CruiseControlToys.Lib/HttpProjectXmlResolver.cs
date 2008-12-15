@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace CruiseControlToys.Lib
@@ -8,12 +9,17 @@ namespace CruiseControlToys.Lib
     public class HttpProjectXmlResolver : IResolver
     {
         private readonly CruiseAddress _cruiseAddress = new CruiseAddress();
-        public XmlDocument ProjectStatusDocument { get; set; }
         private IWebClient _webClient = new CruiseWebClient();
+        private Regex _explicitInclude = new Regex(".+");
 
         public IWebClient WebClient
         {
             set { _webClient = value; }
+        }
+
+        public Regex ExplicitInclude 
+        {
+            set { _explicitInclude = value; }
         }
 
         public HttpProjectXmlResolver(Uri uri)
@@ -27,7 +33,7 @@ namespace CruiseControlToys.Lib
             return CreateProjectStatusListFromXml(xml);
         }
 
-        private static IList<ProjectStatus> CreateProjectStatusListFromXml(XmlNode rootNode)
+        private IList<ProjectStatus> CreateProjectStatusListFromXml(XmlNode rootNode)
         {
             XmlNodeList projectNodeList = rootNode.SelectNodes("/Projects/Project");
             IList<ProjectStatus> projectStatusList = new List<ProjectStatus>();
@@ -35,6 +41,12 @@ namespace CruiseControlToys.Lib
             foreach (XmlNode projectNode in projectNodeList)
             {
                 string name = projectNode.SelectSingleNode("./@name").Value;
+
+                if (!(_explicitInclude.Match(name).Success))
+                {
+                    continue;
+                }
+
                 string activity = projectNode.SelectSingleNode("./@activity").Value;
                 string lastBuildStatus = projectNode.SelectSingleNode("./@lastBuildStatus").Value;
                 string currentBuildStatus = (activity == "Building") ? "Building" : lastBuildStatus;
