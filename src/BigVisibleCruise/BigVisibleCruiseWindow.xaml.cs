@@ -22,7 +22,10 @@ namespace BigVisibleCruise
 
         private void InitializeWindow()
         {
-            _dashboardResolver = new HttpProjectXmlResolver(new Uri(Settings.Default.Dashboard)) { ExplicitInclude = new Regex(Settings.Default.ExplicityIncludeProjectRegEx) };
+            _dashboardResolver = new HttpProjectXmlResolver(new Uri(Settings.Default.Dashboard)) 
+                                     { 
+                                         ExplicitInclude = new Regex(Settings.Default.ExplicityIncludeProjectRegEx) 
+                                     };
 
             LoadSkin();
             SetDataContext();

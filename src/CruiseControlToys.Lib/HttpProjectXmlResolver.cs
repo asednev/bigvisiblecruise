@@ -10,7 +10,7 @@ namespace CruiseControlToys.Lib
     {
         private readonly CruiseAddress _cruiseAddress = new CruiseAddress();
         private IWebClient _webClient = new CruiseWebClient();
-        private Regex _explicitInclude = new Regex(".+");
+        private Regex _explicitInclude = new Regex(".*");
 
         public IWebClient WebClient
         {
