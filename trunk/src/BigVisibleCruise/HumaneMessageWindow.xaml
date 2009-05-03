@@ -7,8 +7,7 @@
         AllowsTransparency="True"
         ShowInTaskbar="False" 
         Background="Transparent"
-        Topmost="True"
-        MouseMove="MouseMoveHandler">
+        Topmost="True">
 
   <Window.Resources>
 
