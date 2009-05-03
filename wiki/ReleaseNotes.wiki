@@ -1,12 +1,12 @@
 #summary Information on different releases of BVC.
 
-==1.3 - in progress == 
+==1.3==
 
  * General code cleanup (patch from spurrymoses).
  * Added the ability to filter projects (see the config file).
  * Fix for 100% CPU utilization (http://code.google.com/p/bigvisiblecruise/issues/detail?id=37)
 
-==1.2 == 
+==1.2== 
 
  * Removed validation. It was busted anyway.
 
