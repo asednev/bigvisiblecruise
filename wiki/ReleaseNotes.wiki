@@ -4,6 +4,7 @@
 
  * General code cleanup (patch from spurrymoses).
  * Added the ability to filter projects (see the config file).
+ * Fix for 100% CPU utilization
 
 ==1.2 == 
 
