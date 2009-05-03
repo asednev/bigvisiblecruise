@@ -25,11 +25,7 @@ namespace BigVisibleCruise
 		private void Timer_Tick(object sender, EventArgs e)
 		{
 			CloseWithFade();
-		}
-
-		private void MouseMoveHandler(object sender, MouseEventArgs e)
-		{
-			CloseWithFade();
+            ((DispatcherTimer)sender).Stop();
 		}
 
 		public void CloseWithFade()
