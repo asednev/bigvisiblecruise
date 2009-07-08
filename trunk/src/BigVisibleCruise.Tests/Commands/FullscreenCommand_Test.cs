@@ -9,6 +9,7 @@ namespace BigVisibleCruise.Tests.Commands
 	public class FullscreenCommand_Test
 	{
 		[Test]
+        [Category("ExcludeFromCI")]
 		public void GoesFullscreen_IfNotAlready_Fullschreen()
 		{
 			var aWindow = new Window
@@ -27,6 +28,7 @@ namespace BigVisibleCruise.Tests.Commands
 		}
 
 		[Test]
+        [Category("ExcludeFromCI")]
 		public void GoesNotFullscreen_WhenAlready_FullScreen()
 		{
 			var aWindow = new Window
