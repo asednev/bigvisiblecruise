@@ -37,11 +37,6 @@ namespace CruiseControlToys.Lib.Tests
 			Assert.That(cruiseAddress.IsValid, Is.False);
 		}
 
-        [Test]
-        public void break_the_build() 
-        {
-            Assert.That(1, Is.EqualTo(2));
-        }
 	}
 }
 
