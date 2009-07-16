@@ -40,7 +40,7 @@ namespace CruiseControlToys.Lib.Tests
         [Test]
         public void break_the_build() 
         {
-            Assert.That(true, Is.EqualTo(false));
+            Assert.That(1, Is.EqualTo(2));
         }
 	}
 }
