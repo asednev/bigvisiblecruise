@@ -8,7 +8,10 @@ namespace CruiseControlToys.Lib
 
 		public bool IsValid
 		{
-			get { return Uri != null && Uri.Scheme.StartsWith("http"); }
+			get
+            { 
+                return Uri != null && Uri.Scheme.StartsWith("http"); 
+            }
 		}
 	}
 }
