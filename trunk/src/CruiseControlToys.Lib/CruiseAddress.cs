@@ -6,8 +6,6 @@ namespace CruiseControlToys.Lib
 	{
 		public Uri Uri { get; set; }
 
-        kfss
-
 		public bool IsValid
 		{
 			get
