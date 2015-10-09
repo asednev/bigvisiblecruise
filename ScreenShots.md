@@ -1,0 +1,11 @@
+Here are a few pictures of BVC in action...
+
+| **Status** | **Image** |
+|:-----------|:----------|
+| Successful with 1 Project | ![http://farm3.static.flickr.com/2258/2058096124_2c8a0e4b24_o.png](http://farm3.static.flickr.com/2258/2058096124_2c8a0e4b24_o.png) |
+| Building with 1 Project | ![http://farm3.static.flickr.com/2404/2058096396_890a789c9b_o.png](http://farm3.static.flickr.com/2404/2058096396_890a789c9b_o.png) |
+| Broken (or Exception) with 1 Project | ![http://farm3.static.flickr.com/2299/2057310313_5e766e8740_o.png](http://farm3.static.flickr.com/2299/2057310313_5e766e8740_o.png) |
+| Multiple Projects (Successful and Broken) | ![http://farm3.static.flickr.com/2048/2051934122_85cd442f06_o.jpg](http://farm3.static.flickr.com/2048/2051934122_85cd442f06_o.jpg) |
+| Multiple Projects (Building and Broken) | ![http://farm3.static.flickr.com/2102/2052800584_73010938ee.jpg](http://farm3.static.flickr.com/2102/2052800584_73010938ee.jpg) |
+| Uniform Status Skin | http://farm3.static.flickr.com/2051/2109487916_863329aeee.jpg?v=0 |
+| Connectivity Issue (This message will show while retries are being performed) | ![http://farm3.static.flickr.com/2399/2086874684_80f1d0bb48_o.jpg](http://farm3.static.flickr.com/2399/2086874684_80f1d0bb48_o.jpg) |

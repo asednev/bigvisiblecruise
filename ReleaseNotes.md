@@ -1,0 +1,68 @@
+## 1.3 ##
+
+  * General code cleanup (patch from spurrymoses).
+  * Added the ability to filter projects (see the config file).
+  * Fix for 100% CPU utilization (http://code.google.com/p/bigvisiblecruise/issues/detail?id=37)
+
+## 1.2 ##
+
+  * Removed validation. It was busted anyway.
+
+## 1.1 ##
+
+  * Fixed issue with save not working as expected (http://code.google.com/p/bigvisiblecruise/issues/detail?id=21&can=1)
+
+## 1.0 ##
+
+  * Upgraded source to VS 2008
+
+  * Now requires v3.5 of the .Net Framework
+
+  * Usability enhancements to the settings
+
+## 0.7 ##
+
+  * Lots of minor coding tweaks and reshuffling.
+
+  * Added gui for settings configuration
+
+  * Added keybindings for fullscreen, options, refresh
+
+  * Removed some of the little-used features in the config (rename / filter functionality)
+
+  * Moved settings to user-specific instead of machine-specific
+
+## 0.6 ##
+  * Support for full-screen toggle with the F11 key (contribution). Enhancement from http://code.google.com/p/bigvisiblecruise/issues/detail?id=14
+
+  * Added uniform grid visualization. Enhancement from http://code.google.com/p/bigvisiblecruise/issues/detail?id=13
+
+  * Put in ability to load skins for alternate visualizations.
+
+## 0.5 ##
+
+  * Support for monitoring of other cruise implementations (java, .rb, etc.) as long as they have the capability to publish the expected xml format.
+
+## 0.4 ##
+
+  * Added handling of intermittent connectivity issues.
+
+## 0.3 ##
+
+  * Added the ability to map project names to more humanized names through the settings file. This was an enhancement request from  http://code.google.com/p/bigvisiblecruise/issues/detail?id=4
+
+  * Refactoring of the Dashboards setting to use a StringCollection instead of a delimited string.
+
+  * Added the ability to filter projects that are displayed. This was an enhancement request from http://code.google.com/p/bigvisiblecruise/issues/list?updated=5&ts=1195789321
+
+  * Removed the AggregateResolver functionality. This functionality really was overkill. Removing the functionality simplified the code a bit.
+
+
+## 0.2 ##
+
+  * Fixed bug with 'Unknown' status http://code.google.com/p/bigvisiblecruise/issues/detail?id=1&can=1
+
+
+## 0.1 (Initial Release) ##
+
+  * Initial project release.

@@ -1,0 +1,12 @@
+BVC will evolve based on the needs of myself and the community. If you would like to see something here, please comment on this page.
+
+The current roadmap looks something like this...
+
+### Sooner Than Later ###
+
+  * NAnt script
+  * Windows installer
+
+### Community-driven Requests ###
+
+Can be seen on the issues tab.
