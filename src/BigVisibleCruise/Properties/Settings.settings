@@ -2,17 +2,26 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BigVisibleCruise.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Dashboard" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx</Value>
-    </Setting>
-    <Setting Name="Skin" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LiveStackedStatus</Value>
-    </Setting>
-    <Setting Name="PollFrequency" Type="System.TimeSpan" Scope="User">
-      <Value Profile="(Default)">00:00:30</Value>
-    </Setting>
     <Setting Name="ExplicityIncludeProjectRegEx" Type="System.String" Scope="User">
       <Value Profile="(Default)">.*</Value>
+    </Setting>
+    <Setting Name="Dashboard" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://10.153.5.70/ccnet/XmlStatusReport.aspx;http://10.153.5.70:8081/httpAuth/app/rest/cctray/projects.xml</Value>
+    </Setting>
+    <Setting Name="Skin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LiveThreeColumnStatus</Value>
+    </Setting>
+    <Setting Name="PollFrequency" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:15</Value>
+    </Setting>
+    <Setting Name="DashboardLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dashboard</Value>
+    </Setting>
+    <Setting Name="DashboardPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Superman123</Value>
+    </Setting>
+    <Setting Name="StartFullscreen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

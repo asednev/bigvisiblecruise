@@ -1,0 +1,12 @@
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\BigVisibleCruise.Tests.dll.config
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\BigVisibleCruise.Tests.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\BigVisibleCruise.Tests.pdb
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\BigVisibleCruise.exe
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\nunit.framework.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\Rhino.Mocks.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\CruiseControlToys.Lib.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\BigVisibleCruise.pdb
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\bin\Debug\CruiseControlToys.Lib.pdb
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\obj\Debug\BigVisibleCruise.Tests.csprojResolveAssemblyReference.cache
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\obj\Debug\BigVisibleCruise.Tests.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\BigVisibleCruise.Tests\obj\Debug\BigVisibleCruise.Tests.pdb

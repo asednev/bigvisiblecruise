@@ -1,0 +1,9 @@
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\bin\Debug\CruiseControlToys.Lib.Tests.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\bin\Debug\CruiseControlToys.Lib.Tests.pdb
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\bin\Debug\CruiseControlToys.Lib.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\bin\Debug\nunit.framework.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\bin\Debug\Rhino.Mocks.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\bin\Debug\CruiseControlToys.Lib.pdb
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\obj\Debug\CruiseControlToys.Lib.Tests.csprojResolveAssemblyReference.cache
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\obj\Debug\CruiseControlToys.Lib.Tests.dll
+C:\Users\ASednev\Documents\GitHub\bigvisiblecruise\src\CruiseControlToys.Lib.Tests\obj\Debug\CruiseControlToys.Lib.Tests.pdb

@@ -8,10 +8,16 @@
 
     <DataTemplate x:Key="SimpleStatusDataTemplate">
         <Border BorderBrush="Black" BorderThickness="1">
-            <TextBlock TextAlignment="Center"
-					 Padding="3"
-					 Background="{Binding Path=CurrentBuildStatus, Converter={StaticResource BuildStatusToColorConverter}}"
+            <Border Padding="3" Background="{Binding Path=CurrentBuildStatus, Converter={StaticResource BuildStatusToColorConverter}}">
+
+                <TextBlock 
+                    TextAlignment="Center"
+					 FontSize="0.75"
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center"
 					 Text="{Binding Path=Name, Converter={StaticResource BuildNameToHumanizedNameConverter}}" />
+
+            </Border>
 		</Border>
     </DataTemplate>
 

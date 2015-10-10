@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace CruiseControlToys.Lib
 {
     public class HttpProjectXmlResolver : IResolver
     {
-        private readonly CruiseAddress _cruiseAddress = new CruiseAddress();
+        private readonly List<CruiseAddress> _cruiseAddress = new List<CruiseAddress>();
         private IWebClient _webClient = new CruiseWebClient();
         private Regex _explicitInclude = new Regex(".*");
+	    private readonly string _user = string.Empty;
+	    private readonly string _password = string.Empty;
 
-        public IWebClient WebClient
+	    public IWebClient WebClient
         {
             set { _webClient = value; }
         }
@@ -22,10 +26,20 @@ namespace CruiseControlToys.Lib
             set { _explicitInclude = value; }
         }
 
-        public HttpProjectXmlResolver(Uri uri)
-        {
-            _cruiseAddress.Uri = uri;
-        }
+	    public HttpProjectXmlResolver(Uri uri)
+	    {
+		    _cruiseAddress.Add(new CruiseAddress {Uri = uri});
+	    }
+		public HttpProjectXmlResolver(IEnumerable<Uri> uriList, string user, string password)
+		{
+			_user = user;
+			_password = password;
+
+			foreach (var uri in uriList)
+			{
+				_cruiseAddress.Add(new CruiseAddress { Uri = uri });
+			}
+		}
 
         public IList<ProjectStatus> GetProjectStatusList()
         {
@@ -54,27 +68,65 @@ namespace CruiseControlToys.Lib
                 projectStatusList.Add(new ProjectStatus(name, currentBuildStatus, lastBuildTime));
             }
 
-            return projectStatusList;
+	        projectStatusList = projectStatusList.OrderBy(x => x.Name).ToList();
+
+			return projectStatusList;
         }
 
         private XmlDocument FetchProjectStatusXml()
         {
-            if (!_cruiseAddress.IsValid) throw new DashboardCommunicationException(_cruiseAddress.Uri);
-            string content = GetRemoteContent();
-            var statusDocument = new XmlDocument();
-            statusDocument.LoadXml(content);
-            return statusDocument;
+            if (!_cruiseAddress.TrueForAll(x => x.IsValid)) throw new DashboardCommunicationException(_cruiseAddress.First(x => !x.IsValid).Uri);
+
+	        XElement statusDocument = null;
+
+	        try
+	        {
+		        foreach (var cruiseAddress in _cruiseAddress)
+		        {
+			        string content = GetRemoteContent(cruiseAddress.Uri);
+
+			        var currentDocument = XElement.Parse(content);
+			        if (statusDocument == null)
+			        {
+				        statusDocument = currentDocument;
+			        }
+			        else
+			        {
+				        var projectsNode = statusDocument;
+
+						if (projectsNode != null)
+				        foreach (var projectNode in currentDocument.Descendants("Project"))
+				        {
+							projectsNode.Add(projectNode);
+						}
+
+					}
+
+		        }
+	        }
+	        catch (Exception)
+	        {
+				//suppress exceptions
+	        }
+	        var xmlDocument = new XmlDocument();
+
+	        if (statusDocument != null)
+	        {
+		        xmlDocument.LoadXml(statusDocument.ToString());
+	        }
+
+	        return xmlDocument;
         }
 
-        private string GetRemoteContent()
+        private string GetRemoteContent(Uri uri)
         {
             try
             {
-                return _webClient.DownloadString(_cruiseAddress.Uri.ToString());
+                return _webClient.DownloadString(uri.ToString(), _user, _password);
             }
             catch (WebException webException)
             {
-                throw new DashboardCommunicationException(_cruiseAddress.Uri, webException);
+                throw new DashboardCommunicationException(uri, webException);
             }
         }
     }

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using System;	
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 using BigVisibleCruise.Properties;
 using CruiseControlToys.Lib;
 using System.Text.RegularExpressions;
+using BigVisibleCruise.Commands;
 
 namespace BigVisibleCruise
 {
@@ -22,7 +25,13 @@ namespace BigVisibleCruise
 
         private void InitializeWindow()
         {
-            _dashboardResolver = new HttpProjectXmlResolver(new Uri(Settings.Default.Dashboard)) 
+	        var raw = Settings.Default.Dashboard;
+			var login = Settings.Default.DashboardLogin;
+	        var password = Settings.Default.DashboardPassword;
+
+			var uriList = raw.Split(';').Select(x => new Uri(x)).ToList();
+
+			_dashboardResolver = new HttpProjectXmlResolver(uriList, login, password)
                                      { 
                                          ExplicitInclude = new Regex(Settings.Default.ExplicityIncludeProjectRegEx) 
                                      };
@@ -30,6 +39,12 @@ namespace BigVisibleCruise
             LoadSkin();
             SetDataContext();
             StartPollingForStatus();
+
+	        if (Settings.Default.StartFullscreen)
+	        {
+				if(CommandContainer.FullscreenCommand != null)
+					CommandContainer.FullscreenCommand.Execute(null);
+            }
         }
 
 

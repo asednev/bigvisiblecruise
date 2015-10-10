@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BigVisibleCruise.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Dashboard" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ccnetlive.thoughtworks.com/ccnet/XmlStatusReport.aspx</Value>
+    </Setting>
+    <Setting Name="Skin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LiveStackedStatus</Value>
+    </Setting>
+    <Setting Name="PollFrequency" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:30</Value>
+    </Setting>
+    <Setting Name="ExplicityIncludeProjectRegEx" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.*</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

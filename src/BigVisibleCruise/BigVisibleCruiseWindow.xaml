@@ -74,8 +74,8 @@
 		</Border>
 	    
 		<Viewbox DockPanel.Dock="Top" Stretch="Fill">
-		  <ItemsControl ItemsSource="{Binding}" Style="{DynamicResource LiveStatusStyle}" />
-		</Viewbox>
+            <ItemsControl ItemsSource="{Binding}" Style="{DynamicResource LiveStatusStyle}" />
+        </Viewbox>
     
 	</DockPanel>
 
