@@ -61,10 +61,13 @@ namespace CruiseControlToys.Lib
                     continue;
                 }
 
-                string activity = projectNode.SelectSingleNode("./@activity").Value;
-                string lastBuildStatus = projectNode.SelectSingleNode("./@lastBuildStatus").Value;
+                string activity = GetValue(projectNode.SelectSingleNode("./@activity"));
+                string lastBuildStatus = GetValue(projectNode.SelectSingleNode("./@lastBuildStatus"));
                 string currentBuildStatus = (activity == "Building") ? "Building" : lastBuildStatus;
-                DateTime lastBuildTime = DateTime.Parse(projectNode.SelectSingleNode("./@lastBuildTime").Value);
+                
+				DateTime lastBuildTime =  DateTime.MinValue;
+				DateTime.TryParse(GetValue(projectNode.SelectSingleNode("./@lastBuildTime")), out lastBuildTime);
+
                 projectStatusList.Add(new ProjectStatus(name, currentBuildStatus, lastBuildTime));
             }
 
@@ -72,6 +75,14 @@ namespace CruiseControlToys.Lib
 
 			return projectStatusList;
         }
+
+	    private string GetValue(XmlNode xmlNode)
+	    {
+		    if (xmlNode == null)
+			    return string.Empty;
+
+		    return xmlNode.Value;
+	    }
 
         private XmlDocument FetchProjectStatusXml()
         {
@@ -108,6 +119,7 @@ namespace CruiseControlToys.Lib
 	        {
 				//suppress exceptions
 	        }
+
 	        var xmlDocument = new XmlDocument();
 
 	        if (statusDocument != null)

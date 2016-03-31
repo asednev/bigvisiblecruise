@@ -1,5 +1,4 @@
-﻿using System;	
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
@@ -20,31 +19,44 @@ namespace BigVisibleCruise
         public BigVisibleCruiseWindow()
         {
             InitializeComponent();
-            InitializeWindow();
+			
+			Loaded	 += OnLoaded;
         }
 
-        private void InitializeWindow()
+	    private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+	    {
+		    try
+		    {
+			    InitializeWindow();
+		    }
+		    catch (Exception ex)
+		    {
+				HumaneMessageWindow.Show(string.Format("Initialization failed: {0}", ex.Message));
+			}
+	    }
+
+		private void InitializeWindow()
         {
-	        var raw = Settings.Default.Dashboard;
-			var login = Settings.Default.DashboardLogin;
-	        var password = Settings.Default.DashboardPassword;
+		    var raw = Settings.Default.Dashboard;
+		    var login = Settings.Default.DashboardLogin;
+		    var password = Settings.Default.DashboardPassword;
 
-			var uriList = raw.Split(';').Select(x => new Uri(x)).ToList();
+		    var uriList = raw.Split(';').Select(x => new Uri(x)).ToList();
 
-			_dashboardResolver = new HttpProjectXmlResolver(uriList, login, password)
-                                     { 
-                                         ExplicitInclude = new Regex(Settings.Default.ExplicityIncludeProjectRegEx) 
-                                     };
+		    _dashboardResolver = new HttpProjectXmlResolver(uriList, login, password)
+		    {
+			    ExplicitInclude = new Regex(Settings.Default.ExplicityIncludeProjectRegEx)
+		    };
 
-            LoadSkin();
-            SetDataContext();
-            StartPollingForStatus();
+		    LoadSkin();
+		    SetDataContext();
+		    StartPollingForStatus();
 
-	        if (Settings.Default.StartFullscreen)
-	        {
-				if(CommandContainer.FullscreenCommand != null)
-					CommandContainer.FullscreenCommand.Execute(null);
-            }
+		    if (Settings.Default.StartFullscreen)
+		    {
+			    if (CommandContainer.FullscreenCommand != null)
+				    CommandContainer.FullscreenCommand.Execute(null);
+		    }
         }
 
 
